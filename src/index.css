@@ -4,15 +4,15 @@
 
 @layer base {
   body {
-    @apply bg-deepbrown text-sand font-sans antialiased overflow-x-hidden;
+    @apply bg-sand text-deepbrown font-sans antialiased overflow-x-hidden;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif text-sand font-normal tracking-wide;
+    @apply font-serif text-deepbrown font-normal tracking-wide;
   }
   
   p {
-    @apply text-dust leading-relaxed;
+    @apply text-earth leading-relaxed;
   }
   
   /* Custom scrollbar */
@@ -20,7 +20,7 @@
     width: 6px;
   }
   ::-webkit-scrollbar-track {
-    @apply bg-deepbrown;
+    @apply bg-sand;
   }
   ::-webkit-scrollbar-thumb {
     @apply bg-rust rounded-full;
@@ -30,15 +30,15 @@
 @layer components {
   /* Common UI Elements */
   .btn-primary {
-    @apply px-10 py-5 bg-terracotta text-sand tracking-widest uppercase text-xs font-semibold transition-all duration-500 hover:bg-ochre hover:-translate-y-1 inline-block text-center rounded-sm shadow-xl shadow-terracotta/20;
+    @apply px-10 py-5 bg-terracotta text-deepbrown tracking-widest uppercase text-xs font-semibold transition-all duration-500 hover:bg-ochre hover:-translate-y-1 inline-block text-center rounded-sm shadow-xl shadow-terracotta/20;
   }
   
   .btn-secondary {
-    @apply px-10 py-5 border border-rust text-sand tracking-widest uppercase text-xs font-semibold transition-all duration-500 hover:bg-rust hover:text-sand inline-block text-center rounded-sm backdrop-blur-md bg-earth/30;
+    @apply px-10 py-5 border border-rust text-deepbrown tracking-widest uppercase text-xs font-semibold transition-all duration-500 hover:bg-rust hover:text-deepbrown inline-block text-center rounded-sm backdrop-blur-md bg-dust/30;
   }
 
   .nav-link {
-    @apply text-xs uppercase tracking-widest text-dust hover:text-ochre transition-all duration-300;
+    @apply text-xs uppercase tracking-widest text-earth hover:text-ochre transition-all duration-300;
   }
   
   .section-padding {
@@ -47,7 +47,7 @@
 
   /* Glassmorphism Panels */
   .glass-panel {
-    @apply bg-earth/40 backdrop-blur-xl border border-sand/5 shadow-2xl;
+    @apply bg-dust/40 backdrop-blur-xl border border-deepbrown/5 shadow-2xl;
   }
 }
 

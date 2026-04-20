@@ -8,37 +8,60 @@ const About = () => {
   };
 
   return (
-    <div className="w-full pt-32 md:pt-48 bg-deepbrown relative z-10">
+    <div className="w-full pt-32 md:pt-48 bg-sand relative z-10">
       
       <section className="section-padding pt-10 text-center relative z-20">
-        <motion.div initial="hidden" animate="visible" variants={fadeUp} className="max-w-[1400px] mx-auto border-b border-sand/10 pb-24">
-          <span className="text-ochre tracking-widest-xl text-[10px] uppercase font-semibold mb-8 block">The Philosophy</span>
-          <h1 className="text-6xl md:text-9xl font-serif text-sand mb-12 leading-[1.1] uppercase tracking-wider">
-            You Are <br/>
-            <span className="italic text-rust lowercase">Not Broken.</span>
+        <motion.div initial="hidden" animate="visible" variants={fadeUp} className="max-w-[1400px] mx-auto border-b border-deepbrown/10 pb-24">
+          <span className="text-ochre tracking-widest-xl text-[10px] uppercase font-semibold mb-8 block">Biography</span>
+          <h1 className="text-6xl md:text-9xl font-serif text-deepbrown mb-12 leading-[1.1] uppercase tracking-wider">
+            Nefa <br/>
+            <span className="italic text-rust lowercase">Jebrin</span>
           </h1>
-          <p className="text-2xl text-dust max-w-4xl mx-auto font-light leading-relaxed">
-            Inner Alchemy Hypnosis was founded on a singular premise: most of what we call "personality" is just deeply ingrained subconscious conditioning. And conditioning can be changed.
+          <p className="text-2xl text-earth max-w-4xl mx-auto font-light leading-relaxed">
+            Welcome — I’m grateful your path has brought you here. I guide souls into deeper consciousness through hypnotherapy, energy healing, spiritual psychology, and Source remembrance work.
           </p>
         </motion.div>
       </section>
 
-      <section className="py-32 bg-deepbrown relative overflow-hidden">
+      <section className="py-32 bg-sand relative overflow-hidden">
         {/* Subtle decorative elements */}
         <div className="absolute top-1/2 left-0 w-1/3 h-[1px] bg-terracotta/20"></div>
-        <div className="absolute bottom-20 right-0 w-1/4 h-[1px] bg-sand/10"></div>
+        <div className="absolute bottom-20 right-0 w-1/4 h-[1px] bg-deepbrown/10"></div>
         
-        <div className="max-w-4xl mx-auto px-6 space-y-16 text-dust leading-loose font-light text-xl relative z-20">
+        <div className="max-w-4xl mx-auto px-6 space-y-16 text-earth leading-loose font-light text-xl relative z-20">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-            <p className="mb-12">For years, the wellness industry has focused on adding more: more routines, more bio-hacking, more self-discipline. But true transformation isn't about adding to yourself. It is about subtracting the layers of conditioning that are not you.</p>
-            <p className="mb-12">Our approach integrates classical clinical hypnotherapy with modern somatics to create profound shifts at the identity level. We bypass the critical conscious mind, which is inherently designed to protect the status quo, and speak directly to the emotional center where true change happens.</p>
-            <p>Whether you choose to heal privately in a 1:1 format, integrate our audio protocols into your daily life, or become a practitioner yourself—our mission is to help you remember the truth of who you are, beneath the programming.</p>
+            <h3 className="text-3xl font-serif text-deepbrown mb-8">My Path of Awakening</h3>
+            <p className="mb-12">I didn’t arrive here through theory — I arrived here through transformation. My journey began with emotional pain, unanswered questions, and a deep knowing that something greater lived inside me. That knowing led me into subconscious work, spiritual alchemy, inner child healing, and the deeper teachings of human consciousness.</p>
+            <p className="mb-12">Over time, I learned that healing is not about “fixing” anything. It is about remembering: that you are more than your wounds, that your body holds ancient intelligence, that your emotions carry messages, that your subconscious is programmable, and that your soul is always guiding you.</p>
+            
+            <div className="my-16 pl-8 border-l border-terracotta">
+              <p className="text-2xl text-deepbrown font-serif italic mb-4">"This work is the bridge between the subconscious and the soul."</p>
+            </div>
+            
+            <h3 className="text-3xl font-serif text-deepbrown mb-8 mt-16">My Teaching Philosophy</h3>
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
+               <div>
+                  <h4 className="text-ochre uppercase tracking-widest text-[10px] font-semibold mb-4">1. Compassion</h4>
+                  <p className="text-base">Healing does not require force — only safety.</p>
+               </div>
+               <div>
+                  <h4 className="text-ochre uppercase tracking-widest text-[10px] font-semibold mb-4">2. Clarity</h4>
+                  <p className="text-base">When the mind becomes clear, the soul can speak.</p>
+               </div>
+               <div>
+                  <h4 className="text-ochre uppercase tracking-widest text-[10px] font-semibold mb-4">3. Consciousness</h4>
+                  <p className="text-base">You are not broken. You are evolving. Your system simply needs to remember its natural state.</p>
+               </div>
+            </div>
+
+            <p>Whether you join the 7-Path Self-Hypnosis Course, book a healing session, or walk your own path of inner alchemy — I am here to support you with honesty, depth, and presence. Your healing matters. Your story matters. Your soul matters.</p>
+            <p className="mt-8 font-serif text-deepbrown italic text-2xl">Welcome home to yourself.</p>
           </motion.div>
           
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center pt-32 mt-32 border-t border-sand/5">
-            <h3 className="text-4xl md:text-5xl font-serif text-sand mb-12">Ready to begin your work?</h3>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center pt-32 mt-32 border-t border-deepbrown/5">
+            <h3 className="text-4xl md:text-5xl font-serif text-deepbrown mb-12">Ready to begin your work?</h3>
             <div className="flex flex-col sm:flex-row justify-center gap-8">
-              <Link to="/program" className="btn-primary backdrop-blur-md bg-terracotta/90 border border-transparent">The 21-Day Journey</Link>
+              <Link to="/certification" className="btn-primary backdrop-blur-md bg-terracotta/90 border border-transparent">7-Path Certification</Link>
               <Link to="/services" className="btn-secondary">Private Sessions</Link>
             </div>
           </motion.div>

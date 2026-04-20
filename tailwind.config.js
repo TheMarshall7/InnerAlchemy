@@ -7,14 +7,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        sand: '#f4eee0',
-        terracotta: '#d2613b',
+        sand: '#efe2d3', // Warm healing oat/plaster, not pure white
+        terracotta: '#c95733', // Slightly softened terracotta
         rust: '#993d22',
         ochre: '#d48c41',
         clay: '#b17255',
-        deepbrown: '#18120f',
-        earth: '#281c15',
-        dust: '#dbc7b5',
+        deepbrown: '#2a1f1a', // Softened dark font color
+        earth: '#3d2e26', // Softened secondary dark font
+        dust: '#e3cfbd', // Secondary warm background color
       },
       fontFamily: {
         serif: ['"Playfair Display"', 'Cormorant Garamond', 'serif'], // Elegant serif like SIROCCO
