@@ -6,7 +6,7 @@ const ThankYou = () => {
     <div className="w-full min-h-screen bg-sand flex items-center justify-center py-20 px-6 relative overflow-hidden">
       <div className="noise-overlay"></div>
       
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1627914041113-1f148dceeafe?q=80&w=2000&auto=format&fit=crop')] opacity-10 object-cover mix-blend-overlay"></div>
+      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2000&auto=format&fit=crop')] opacity-10 object-cover mix-blend-overlay"></div>
 
       <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, ease: "easeOut" }} className="max-w-2xl w-full text-center glass-panel p-16 md:p-24 relative z-20">
         <span className="text-ochre tracking-widest-xl text-[10px] uppercase font-semibold mb-8 block">Order Confirmed</span>
