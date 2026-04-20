@@ -1,0 +1,54 @@
+
+> nefa@0.0.0 lint
+> eslint .
+
+
+/home/isiata/Nefa/src/components/Navbar.jsx
+  19:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  17 |
+  18 |   useEffect(() => {
+> 19 |     setIsOpen(false);
+     |     ^^^^^^^^^ Avoid calling setState() directly within an effect
+  20 |   }, [location.pathname]);
+  21 |
+  22 |   const navLinks = [  react-hooks/set-state-in-effect
+
+/home/isiata/Nefa/src/pages/About.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/home/isiata/Nefa/src/pages/Certification.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/home/isiata/Nefa/src/pages/Checkout.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/home/isiata/Nefa/src/pages/Contact.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/home/isiata/Nefa/src/pages/Funnel.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/home/isiata/Nefa/src/pages/Home.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/home/isiata/Nefa/src/pages/LeadMagnet.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/home/isiata/Nefa/src/pages/Program.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/home/isiata/Nefa/src/pages/Services.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/home/isiata/Nefa/src/pages/ThankYou.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+✖ 11 problems (11 errors, 0 warnings)
+
