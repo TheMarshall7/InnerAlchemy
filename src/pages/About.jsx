@@ -23,12 +23,12 @@ const About = () => {
         </motion.div>
       </section>
 
-      <section className="py-32 bg-sand relative overflow-hidden">
+      <section className="py-20 md:py-32 bg-sand relative overflow-hidden">
         {/* Subtle decorative elements */}
-        <div className="absolute top-1/2 left-0 w-1/3 h-[1px] bg-terracotta/20"></div>
-        <div className="absolute bottom-20 right-0 w-1/4 h-[1px] bg-deepbrown/10"></div>
+        <div className="absolute top-1/2 left-0 w-1/3 h-[1px] bg-terracotta/20 hidden md:block"></div>
+        <div className="absolute bottom-20 right-0 w-1/4 h-[1px] bg-deepbrown/10 hidden md:block"></div>
         
-        <div className="max-w-4xl mx-auto px-6 space-y-16 text-earth leading-loose font-light text-xl relative z-20">
+        <div className="max-w-4xl mx-auto px-6 space-y-16 md:space-y-24 text-earth leading-loose font-light text-lg md:text-xl relative z-20">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <h3 className="text-3xl font-serif text-deepbrown mb-8">My Path of Awakening</h3>
             <p className="mb-12">I didn’t arrive here through theory — I arrived here through transformation. My journey began with emotional pain, unanswered questions, and a deep knowing that something greater lived inside me. That knowing led me into subconscious work, spiritual alchemy, inner child healing, and the deeper teachings of human consciousness.</p>
@@ -58,9 +58,9 @@ const About = () => {
             <p className="mt-8 font-serif text-deepbrown italic text-2xl">Welcome home to yourself.</p>
           </motion.div>
           
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center pt-32 mt-32 border-t border-deepbrown/5">
-            <h3 className="text-4xl md:text-5xl font-serif text-deepbrown mb-12">Ready to begin your work?</h3>
-            <div className="flex flex-col sm:flex-row justify-center gap-8">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center pt-24 md:pt-32 mt-24 md:mt-32 border-t border-deepbrown/5">
+            <h3 className="text-4xl md:text-5xl font-serif text-deepbrown mb-12 px-4">Ready to begin your work?</h3>
+            <div className="flex flex-col sm:flex-row justify-center gap-6 md:gap-8 px-6">
               <Link to="/certification" className="btn-primary backdrop-blur-md bg-terracotta/90 border border-transparent">7-Path Certification</Link>
               <Link to="/services" className="btn-secondary">Private Sessions</Link>
             </div>

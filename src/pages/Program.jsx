@@ -71,7 +71,7 @@ const Program = () => {
       </section>
 
       {/* CTA SECTION */}
-      <section className="py-40 bg-sand text-center relative overflow-hidden">
+      <section className="py-24 md:py-40 bg-sand text-center relative overflow-hidden px-6">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="max-w-4xl mx-auto px-6 relative z-10">
           <h2 className="text-4xl md:text-6xl font-serif text-deepbrown mb-12">Want to become your <br/> <span className="italic text-terracotta">own healer?</span></h2>
           <Link to="/certification" className="btn-primary text-white w-full sm:w-auto">

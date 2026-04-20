@@ -67,10 +67,10 @@ const Services = () => {
         </motion.div>
       </section>
 
-      <section className="pb-40 bg-sand">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 space-y-32">
+      <section className="py-20 md:py-40 bg-sand">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 space-y-24 md:space-y-32">
           {services.map((service, i) => (
-            <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp} className="grid md:grid-cols-12 gap-16 items-start relative group">
+            <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp} className="grid md:grid-cols-12 gap-8 md:gap-16 items-start relative group">
               <div className="md:col-span-1 hidden md:block">
                  <span className="text-deepbrown/20 font-serif text-5xl block">{service.num}</span>
               </div>
@@ -79,12 +79,12 @@ const Services = () => {
                 <h3 className="text-terracotta tracking-widest-xl uppercase text-xs mb-8">{service.duration}</h3>
                 <Link to="/contact" className="btn-secondary hidden md:inline-block">Book a Session</Link>
               </div>
-              <div className="md:col-span-6 space-y-12">
-                <div className="border-l border-terracotta pl-8 py-2">
+              <div className="md:col-span-6 space-y-8 md:space-y-12">
+                <div className="border-l border-terracotta pl-6 md:pl-8 py-2">
                   <h4 className="text-ochre uppercase tracking-widest text-[10px] font-semibold mb-4">The Process</h4>
                   <p className="text-earth font-light leading-relaxed">{service.description}</p>
                 </div>
-                <div className="border-l border-deepbrown/20 pl-8 py-2">
+                <div className="border-l border-deepbrown/20 pl-6 md:pl-8 py-2">
                   <h4 className="text-ochre uppercase tracking-widest text-[10px] font-semibold mb-4">Supports & Benefits</h4>
                   <p className="text-earth font-light leading-relaxed italic">{service.benefits}</p>
                 </div>

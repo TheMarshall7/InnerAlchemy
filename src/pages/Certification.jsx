@@ -15,7 +15,7 @@ const Certification = () => {
       <section className="section-padding bg-dust relative overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-sand/40 z-10"></div>
-          <img src="https://images.unsplash.com/photo-1549421263-596ea62a6fdf?q=80&w=2000&auto=format&fit=crop" className="w-full h-full object-cover object-top opacity-30 contrast-125 saturate-50 mix-blend-color-burn" />
+          <img src="https://images.unsplash.com/photo-1606902966160-5a3d7d7fb379?q=80&w=2000&auto=format&fit=crop" className="w-full h-full object-cover object-top opacity-30 contrast-125 saturate-50 mix-blend-color-burn" />
         </div>
         <motion.div initial="hidden" animate="visible" variants={fadeUp} className="max-w-5xl relative z-20 mx-auto text-center">
           <span className="text-ochre tracking-widest-xl text-[10px] uppercase font-semibold mb-8 block">Professional Training</span>
@@ -31,20 +31,20 @@ const Certification = () => {
       </section>
 
       {/* IDENTITY SHIFT */}
-      <section className="py-40 bg-sand text-center relative z-20">
+      <section className="py-24 md:py-40 bg-sand text-center relative z-20">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="max-w-4xl mx-auto px-6">
           <Compass className="mx-auto text-terracotta mb-12" size={48} strokeWidth={1} />
           <h2 className="text-4xl md:text-6xl font-serif text-deepbrown mb-12 leading-tight">Heal. Release. <br/><span className="italic text-clay">Transform. Awaken.</span></h2>
-          <p className="text-earth leading-loose font-light text-xl">
+          <p className="text-earth leading-loose font-light text-lg md:text-xl">
             The 7th Path™ Self-Hypnosis method is a unique inner journey that empowers you to become your own healer. Unlike traditional hypnosis, this system integrates spiritual psychology and the Delta recognitions into a mind–body–spirit approach that deeply reconnects you with the higher power within.
           </p>
         </motion.div>
       </section>
 
       {/* THE 9 RECOGNITIONS */}
-      <section className="py-32 bg-dust border-y border-deepbrown/5">
+      <section className="py-20 md:py-32 bg-dust border-y border-deepbrown/5">
         <div className="max-w-[1400px] mx-auto px-6">
-          <div className="mb-24 flex md:flex-row flex-col justify-between items-start md:items-end border-b border-deepbrown/10 pb-12">
+          <div className="mb-16 md:mb-24 flex md:flex-row flex-col justify-between items-start md:items-end border-b border-deepbrown/10 pb-12">
             <h2 className="text-4xl md:text-6xl font-serif text-deepbrown mb-4 md:mb-0">The Core <span className="italic text-ochre">Recognitions</span></h2>
             <p className="text-earth font-light max-w-sm md:text-right">What you will learn & integrate inside this paradigm-shifting journey.</p>
           </div>
@@ -71,9 +71,9 @@ const Certification = () => {
       {/* OUTCOME & CTA */}
       <section className="section-padding bg-sand text-center">
         <div className="max-w-[1400px] mx-auto">
-          <h2 className="text-4xl md:text-6xl font-serif text-deepbrown mb-20">What's <span className="italic text-terracotta">Included?</span></h2>
-          <div className="grid md:grid-cols-2 gap-16 mb-24 text-left">
-            <div className="glass-panel p-16 relative overflow-hidden bg-white/40">
+          <h2 className="text-4xl md:text-6xl font-serif text-deepbrown mb-12 md:mb-20">What's <span className="italic text-terracotta">Included?</span></h2>
+          <div className="grid md:grid-cols-2 gap-8 md:gap-16 mb-16 md:mb-24 text-left">
+            <div className="glass-panel p-10 md:p-16 relative overflow-hidden bg-white/40">
               <div className="absolute top-0 right-0 p-8 opacity-5"><Award size={120} strokeWidth={0.5} className="text-deepbrown"/></div>
               <h3 className="text-3xl font-serif text-deepbrown mb-6 relative z-10">The Curriculum</h3>
               <ul className="text-earth font-light leading-relaxed relative z-10 space-y-4">
@@ -84,8 +84,8 @@ const Certification = () => {
                  <li>✔ Delta Connection Practices</li>
               </ul>
             </div>
-            <div className="glass-panel p-16 relative overflow-hidden bg-white/40">
-               <div className="absolute top-0 right-0 p-8 opacity-5"><HeartHandshake size={120} strokeWidth={0.5} className="text-deepbrown"/></div>
+            <div className="glass-panel p-10 md:p-16 relative overflow-hidden bg-white/40">
+               <div className="absolute top-0 right-0 p-8 opacity-5"><HeartHandshake size={80} md:size={120} strokeWidth={0.5} className="text-deepbrown"/></div>
               <h3 className="text-3xl font-serif text-deepbrown mb-6 relative z-10">Build Your Holistic Business</h3>
               <p className="text-earth font-light leading-relaxed relative z-10">You will receive an official certification that empowers you to start your own holistic business. Step into your purpose, utilizing a highly profound framework that commands premium rates and changes lives globally.</p>
             </div>
