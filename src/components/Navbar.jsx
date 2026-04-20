@@ -55,7 +55,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-dust border-t border-sand py-12 px-6 flex flex-col space-y-8 glass-panel h-screen">
+        <div className="md:hidden fixed top-[72px] left-0 w-full bg-dust border-t border-sand py-12 px-6 flex flex-col space-y-8 glass-panel overflow-y-auto max-h-[calc(100vh-72px)] z-50">
           {navLinks.map((link) => (
             <Link key={link.name} to={link.path} className="text-deepbrown text-lg font-serif uppercase tracking-widest">
               {link.name}

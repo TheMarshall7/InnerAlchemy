@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import Program from './pages/Program';
@@ -14,6 +15,7 @@ import LeadMagnet from './pages/LeadMagnet';
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         {/* Pages with standard Layout (Navbar/Footer) */}
         <Route element={<Layout />}>
