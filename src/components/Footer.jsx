@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { FiInstagram, FiFacebook, FiMail } from 'react-icons/fi';
+import { FiInstagram, FiMail } from 'react-icons/fi';
 
 const Footer = () => {
   return (
@@ -15,9 +15,8 @@ const Footer = () => {
               You are not broken. You are running subconscious patterns that can be changed. Experience identity-level transformation in the sanctuary of your own mind.
             </p>
             <div className="flex space-x-6">
-              <a href="#" className="p-3 border border-deepbrown/10 rounded-full text-deepbrown hover:bg-terracotta hover:border-terracotta transition-all duration-500"><FiInstagram size={18} /></a>
-              <a href="#" className="p-3 border border-deepbrown/10 rounded-full text-deepbrown hover:bg-terracotta hover:border-terracotta transition-all duration-500"><FiFacebook size={18} /></a>
-              <a href="#" className="p-3 border border-deepbrown/10 rounded-full text-deepbrown hover:bg-terracotta hover:border-terracotta transition-all duration-500"><FiMail size={18} /></a>
+              <a href="https://www.instagram.com/goddessinhumanform_alchemist?igsh=cTg1ZGdja21oMjN6" target="_blank" rel="noopener noreferrer" className="p-3 border border-deepbrown/10 rounded-full text-deepbrown hover:bg-terracotta hover:border-terracotta transition-all duration-500"><FiInstagram size={18} /></a>
+              <a href="mailto:nefnefa1968@gmail.com" className="p-3 border border-deepbrown/10 rounded-full text-deepbrown hover:bg-terracotta hover:border-terracotta transition-all duration-500"><FiMail size={18} /></a>
             </div>
           </div>
 
@@ -36,7 +35,7 @@ const Footer = () => {
           <div className="pt-2">
             <h4 className="text-deepbrown font-serif tracking-widest text-sm uppercase mb-8">Company</h4>
             <ul className="space-y-4">
-              <li><Link to="/about" className="text-sm text-earth hover:text-ochre transition-colors">About Us</Link></li>
+              <li><Link to="/about" className="text-sm text-earth hover:text-ochre transition-colors">About</Link></li>
               <li><Link to="/funnel" className="text-sm text-earth hover:text-ochre transition-colors">Free Training</Link></li>
               <li><Link to="/lead-magnet" className="text-sm text-earth hover:text-ochre transition-colors">Newsletter</Link></li>
             </ul>

@@ -48,7 +48,7 @@ const Program = () => {
             {/* Massive Hero Audio Module */}
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp} className="col-span-1 lg:col-span-8 row-span-2 group relative overflow-hidden bg-deepbrown border border-dust rounded-[40px] md:rounded-[60px] shadow-2xl">
               <div className="absolute inset-0 z-0">
-                <img src="https://images.unsplash.com/photo-1518241353330-0f7941c2d5e5?q=80&w=2000&auto=format&fit=crop" className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-105 opacity-40 saturate-50" />
+                <img src="https://images.unsplash.com/photo-1545389336-cf090694435e?q=80&w=2000&auto=format&fit=crop" alt="Subconscious Reset" className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-105 opacity-40 saturate-50" />
                 <div className="absolute inset-0 bg-gradient-to-t from-deepbrown via-deepbrown/50 to-transparent"></div>
               </div>
               <div className="absolute inset-0 p-10 md:p-16 flex flex-col justify-end z-10">

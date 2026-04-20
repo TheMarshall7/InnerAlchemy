@@ -47,6 +47,14 @@ const Contact = () => {
                 <span className="text-terracotta tracking-widest text-[10px] uppercase font-semibold w-24">Availability</span>
                 <span className="font-light text-sm">Mon - Fri | 10 AM - 5 PM</span>
               </div>
+              <div className="flex items-center gap-4 text-earth">
+                <span className="text-terracotta tracking-widest text-[10px] uppercase font-semibold w-24">Email</span>
+                <a href="mailto:nefnefa1968@gmail.com" className="font-light text-sm hover:text-terracotta transition-colors">nefnefa1968@gmail.com</a>
+              </div>
+              <div className="flex items-center gap-4 text-earth">
+                <span className="text-terracotta tracking-widest text-[10px] uppercase font-semibold w-24">Phone</span>
+                <a href="tel:+15192800056" className="font-light text-sm hover:text-terracotta transition-colors">(519) 280-0056</a>
+              </div>
             </div>
             
             {/* Minimalist Compass SVG */}
