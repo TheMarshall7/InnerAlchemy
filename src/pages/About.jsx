@@ -4,15 +4,44 @@ import { useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 import nefaImg from '../assets/nefa.png';
 
+// Certificate Imports
+import certAccess from '../assets/certificates/Access bars facilitator degree certificate.jpg';
+import certConscious from '../assets/certificates/Access consciousness certificate.jpg';
+import certNGH from '../assets/certificates/National Guild of hypnotist certificate.jpg';
+import cert7Path from '../assets/certificates/Seven path hypnosis teacher certificate.jpg';
+
 const About = () => {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start start", "end start"] });
   const yParallax = useTransform(scrollYProgress, [0, 1], [0, 150]);
 
   const fadeUp = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 40 },
     visible: { opacity: 1, y: 0, transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] } }
   };
+
+  const certificates = [
+    { 
+      title: "NGH Certified Hypnotherapist", 
+      blurb: "Member of the National Guild of Hypnotists, the world's oldest and largest hypnosis organization.", 
+      img: certNGH 
+    },
+    { 
+      title: "7-Path Hypnosis Teacher", 
+      blurb: "Advanced certification to teach the Mind-Body-Spirit system of transformative self-hypnosis.", 
+      img: cert7Path 
+    },
+    { 
+      title: "Access Bars Facilitator", 
+      blurb: "Certified to facilitate the clearing of 32 energetic points on the head to release mental clutter.", 
+      img: certAccess 
+    },
+    { 
+      title: "Access Consciousness Practitioner", 
+      blurb: "Expertise in MTVSS and cellular memory body processes for profound physical restoration.", 
+      img: certConscious 
+    }
+  ];
 
   return (
     <div className="w-full bg-sand relative z-10 selection:bg-rust selection:text-sand" ref={containerRef}>
@@ -153,6 +182,39 @@ const About = () => {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* PROFESSIONAL LINEAGE (Horizontal Scroll) */}
+      <section className="py-24 md:py-40 bg-sand relative overflow-hidden">
+        <div className="max-w-[1400px] mx-auto px-6 mb-16 md:mb-24 flex flex-col md:flex-row justify-between md:items-end border-b border-deepbrown/10 pb-12">
+          <div>
+            <span className="text-ochre tracking-[0.25em] text-[9px] uppercase font-semibold mb-4 block">Certified Excellence</span>
+            <h2 className="text-4xl md:text-6xl font-serif text-deepbrown leading-tight">Lineage & <br/><span className="italic text-terracotta">Accreditations.</span></h2>
+          </div>
+          <p className="text-earth font-light max-w-sm md:text-right mt-6 md:mt-0">Rigorous training from the world's leading institutions in hypnotherapy and energetic medicine.</p>
+        </div>
+
+        <div className="flex overflow-x-auto pb-12 px-6 gap-8 no-scrollbar cursor-grab active:cursor-grabbing snap-x snap-mandatory">
+          {certificates.map((cert, i) => (
+             <motion.div 
+               key={i}
+               initial={{ opacity: 0, x: 50 }}
+               whileInView={{ opacity: 1, x: 0 }}
+               viewport={{ once: true }}
+               transition={{ duration: 1, delay: i * 0.1 }}
+               className="w-[85vw] md:w-[500px] md:min-w-[500px] snap-center flex-shrink-0"
+             >
+                <div className="bg-white p-6 md:p-10 shadow-2xl border border-dust mb-10 group relative overflow-hidden rounded-sm flex items-center justify-center h-[300px] md:h-[450px]">
+                  <img src={cert.img} alt={cert.title} className="max-w-full max-h-full object-contain grayscale hover:grayscale-0 transition-all duration-1000 transform group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-deepbrown/5 pointer-events-none mix-blend-multiply"></div>
+                </div>
+                <div className="px-4">
+                  <h4 className="text-deepbrown font-serif text-2xl mb-4 leading-tight">{cert.title}</h4>
+                  <p className="text-earth/70 text-base font-light leading-relaxed max-w-sm">{cert.blurb}</p>
+                </div>
+             </motion.div>
+          ))}
         </div>
       </section>
 

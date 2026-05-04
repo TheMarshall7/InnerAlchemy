@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Compass, Award, HeartHandshake, ArrowRight } from 'lucide-react';
 import { useRef } from 'react';
 import nefaImg from '../assets/nefa.png';
+import mirrorsImg from '../assets/essence_mirrors.jpg';
 
 const Certification = () => {
   const containerRef = useRef(null);
@@ -22,13 +23,6 @@ const Certification = () => {
         {/* Soft background orbs */}
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-sand/60 rounded-full blur-[120px] pointer-events-none"></div>
 
-        <div className="absolute inset-0 z-0">
-          <img 
-            src={nefaImg} 
-            className="w-full h-full object-contain object-center opacity-10" 
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-sand/30 to-sand z-10"></div>
-        </div>
 
         <motion.div initial="hidden" animate="visible" variants={fadeUp} className="max-w-5xl relative z-20 mx-auto text-center px-6">
           <span className="text-terracotta tracking-widest-xl text-[10px] uppercase font-semibold mb-8 block drop-shadow-sm">Professional Training</span>
@@ -53,12 +47,12 @@ const Certification = () => {
       </div>
 
       {/* IDENTITY SHIFT */}
-      <section className="py-24 md:py-40 bg-sand text-center relative z-20">
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-dust rounded-full blur-[100px] pointer-events-none"></div>
+      <section className="py-24 md:py-40 bg-clay text-center relative z-20 shadow-inner">
+        <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent"></div>
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="max-w-4xl mx-auto px-6 relative z-10">
-          <Compass className="mx-auto text-terracotta mb-12 animate-[spin_40s_linear_infinite]" size={64} strokeWidth={0.5} />
-          <h2 className="text-4xl md:text-6xl font-serif text-deepbrown mb-12 leading-tight">Heal. Release. <br/><span className="italic text-clay">Transform. Awaken.</span></h2>
-          <p className="text-earth leading-loose font-light text-lg md:text-xl">
+          <Compass className="mx-auto text-white mb-12 animate-[spin_40s_linear_infinite]" size={64} strokeWidth={0.5} />
+          <h2 className="text-4xl md:text-6xl font-serif text-white mb-12 leading-tight">Heal. Release. <br/><span className="italic text-sand/80">Transform. Awaken.</span></h2>
+          <p className="text-white/90 leading-loose font-light text-lg md:text-xl">
             The 7th Path™ Self-Hypnosis method is a unique inner journey that empowers you to become your own healer. Unlike traditional hypnosis, this system integrates spiritual psychology and the Delta recognitions into a mind–body–spirit approach that deeply reconnects you with the higher power within.
           </p>
         </motion.div>
@@ -96,6 +90,37 @@ const Certification = () => {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* THE SEVEN ESSENCE MIRRORS */}
+      <section className="py-24 md:py-40 bg-sand relative overflow-hidden">
+        <div className="max-w-[1400px] mx-auto px-6 grid md:grid-cols-2 gap-16 items-center relative z-10">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+             <span className="text-ochre tracking-[0.3em] text-[10px] uppercase font-semibold mb-6 block">The Mirror Principle</span>
+             <h2 className="text-4xl md:text-6xl font-serif text-deepbrown mb-8 leading-tight">The Seven <br/><span className="italic text-clay">Essence Mirrors</span></h2>
+             <p className="text-earth font-light text-lg leading-relaxed mb-10 border-l border-terracotta/20 pl-8">
+               A cornerstone of our training. Learn to read the world as a reflection of your internal state. These mirrors provide a profound map for understanding relationships, repeating patterns, and the hidden facets of your own soul.
+             </p>
+             <ul className="space-y-4 text-deepbrown/60 font-light text-sm italic">
+                <li>✧ Recognition of the Self in others</li>
+                <li>✧ Understanding your judgments and attractions</li>
+                <li>✧ Reclaiming your projections to return to wholeness</li>
+             </ul>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }} 
+            whileInView={{ opacity: 1, scale: 1 }} 
+            viewport={{ once: true }}
+            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+            className="relative group p-4 md:p-0"
+          >
+            <div className="absolute -inset-4 bg-terracotta/5 rounded-full blur-3xl -z-10 group-hover:bg-terracotta/10 transition-all duration-1000"></div>
+            <div className="rounded-[40px] md:rounded-[80px] overflow-hidden shadow-3xl border-2 border-white/60 bg-white/20 p-2 md:p-4 backdrop-blur-sm">
+               <img src={mirrorsImg} alt="The Seven Essence Mirrors" className="w-full h-auto rounded-[32px] md:rounded-[64px] object-cover object-center" />
+            </div>
+          </motion.div>
         </div>
       </section>
 
