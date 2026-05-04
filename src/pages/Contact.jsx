@@ -29,31 +29,50 @@ const Contact = () => {
         <div className="max-w-[1200px] w-full grid lg:grid-cols-2 gap-12 lg:gap-0 items-center">
           
           <motion.div initial="hidden" animate="visible" variants={fadeUp} className="pr-0 lg:pr-24 lg:border-r border-deepbrown/10 relative">
-            <span className="text-ochre tracking-[0.25em] text-[10px] uppercase font-semibold mb-8 flex items-center gap-4"><div className="w-8 h-px bg-terracotta/50"></div> Book A Session</span>
-            <h1 className="text-5xl md:text-8xl font-serif text-deepbrown mb-8 leading-[0.9] tracking-tight">
+            <div className="inline-flex items-center gap-4 mb-8">
+              <div className="w-12 h-px bg-terracotta/60"></div>
+              <span className="text-ochre tracking-[0.3em] text-[11px] uppercase font-semibold">Book A Session</span>
+            </div>
+
+            <h1 className="text-6xl md:text-[6.5rem] lg:text-[7.5rem] font-serif text-deepbrown mb-6 leading-[0.85] tracking-tight">
               Begin your <br/>
-              <span className="italic text-clay">Journey.</span>
+              <span className="italic text-terracotta relative inline-block mt-2 md:mt-4">
+                Journey.
+                <div className="absolute -bottom-2 left-0 right-0 h-px bg-gradient-to-r from-terracotta/50 to-transparent"></div>
+              </span>
             </h1>
-            <p className="text-earth font-light text-lg md:text-xl leading-relaxed mb-12">
+
+            <p className="text-earth font-light text-lg md:text-xl leading-relaxed mb-16 max-w-lg border-l-2 border-terracotta/20 pl-6">
               Whether you are ready for a private hypnotherapy session, energy work, or enrolling in our certification programs—reach out.
             </p>
             
-            <div className="space-y-6">
-              <div className="flex items-center gap-4 text-earth">
-                <span className="text-terracotta tracking-widest text-[10px] uppercase font-semibold w-24">Location</span>
-                <span className="font-light text-sm">Global via Zoom & WhatsApp</span>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-10 pl-4">
+              <div className="group relative">
+                <div className="absolute -left-4 top-2 w-1 h-1 bg-terracotta/30 rounded-full group-hover:bg-terracotta group-hover:scale-150 transition-all duration-500"></div>
+                <span className="text-terracotta tracking-[0.2em] text-[10px] uppercase font-semibold mb-2 block">Location</span>
+                <span className="block text-earth font-light text-base group-hover:text-deepbrown transition-colors duration-300">Global via Zoom & WhatsApp</span>
               </div>
-              <div className="flex items-center gap-4 text-earth">
-                <span className="text-terracotta tracking-widest text-[10px] uppercase font-semibold w-24">Availability</span>
-                <span className="font-light text-sm">Mon - Fri | 10 AM - 5 PM</span>
+              
+              <div className="group relative">
+                <div className="absolute -left-4 top-2 w-1 h-1 bg-terracotta/30 rounded-full group-hover:bg-terracotta group-hover:scale-150 transition-all duration-500"></div>
+                <span className="text-terracotta tracking-[0.2em] text-[10px] uppercase font-semibold mb-2 block">Availability</span>
+                <span className="block text-earth font-light text-base group-hover:text-deepbrown transition-colors duration-300">Mon - Fri <span className="mx-2 text-earth/30">|</span> 10 AM - 5 PM</span>
               </div>
-              <div className="flex items-center gap-4 text-earth">
-                <span className="text-terracotta tracking-widest text-[10px] uppercase font-semibold w-24">Email</span>
-                <a href="mailto:nefnefa1968@gmail.com" className="font-light text-sm hover:text-terracotta transition-colors">nefnefa1968@gmail.com</a>
+              
+              <div className="group relative">
+                <div className="absolute -left-4 top-2 w-1 h-1 bg-terracotta/30 rounded-full group-hover:bg-terracotta group-hover:scale-150 transition-all duration-500"></div>
+                <span className="text-terracotta tracking-[0.2em] text-[10px] uppercase font-semibold mb-2 block">Email</span>
+                <a href="mailto:nefnefa1968@gmail.com" className="block text-earth font-light text-base hover:text-terracotta transition-colors duration-300">
+                  nefnefa1968@gmail.com
+                </a>
               </div>
-              <div className="flex items-center gap-4 text-earth">
-                <span className="text-terracotta tracking-widest text-[10px] uppercase font-semibold w-24">Phone</span>
-                <a href="tel:+15192800056" className="font-light text-sm hover:text-terracotta transition-colors">(519) 280-0056</a>
+              
+              <div className="group relative">
+                <div className="absolute -left-4 top-2 w-1 h-1 bg-terracotta/30 rounded-full group-hover:bg-terracotta group-hover:scale-150 transition-all duration-500"></div>
+                <span className="text-terracotta tracking-[0.2em] text-[10px] uppercase font-semibold mb-2 block">Phone</span>
+                <a href="tel:+15192800056" className="block text-earth font-light text-base hover:text-terracotta transition-colors duration-300">
+                  (519) 280-0056
+                </a>
               </div>
             </div>
             
