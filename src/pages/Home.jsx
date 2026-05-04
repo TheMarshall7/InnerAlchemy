@@ -3,6 +3,8 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 
+import nefaImg from '../assets/nefa.png';
+
 const Home = () => {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -63,14 +65,13 @@ const Home = () => {
             className="md:col-span-6 lg:col-span-5 h-[60vh] md:h-[85vh] w-full relative mt-16 md:mt-0"
           >
             {/* The Arch Frame */}
-            <div className="w-full h-full rounded-t-[200px] overflow-hidden relative shadow-[0_20px_50px_rgba(42,31,26,0.05)] border-t-4 border-l border-r border-white/60 bg-dust">
-               <motion.img 
-                 style={{ y: yParallax }}
-                 src="https://images.unsplash.com/photo-1506126613632-1a43a08bdfdb?q=80&w=2000&auto=format&fit=crop" 
-                 alt="Healing Hands" 
-                 className="absolute top-[-10%] left-0 w-full h-[120%] object-cover contrast-110 saturate-50 mix-blend-multiply opacity-80"
+            <div className="w-full h-full rounded-t-[200px] overflow-hidden relative shadow-[0_20px_50px_rgba(42,31,26,0.05)] border-t-4 border-l border-r border-white/60 bg-dust flex items-center justify-center">
+               <img 
+                 src={nefaImg} 
+                 alt="Nefa Jebrin" 
+                 className="w-full h-full object-cover object-top"
                />
-               <div className="absolute inset-0 bg-gradient-to-t from-sand via-transparent to-transparent opacity-60"></div>
+               <div className="absolute inset-0 bg-gradient-to-t from-sand/60 via-transparent to-transparent"></div>
             </div>
             
             {/* Floating Ornamental SVG */}

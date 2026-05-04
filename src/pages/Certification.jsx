@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Compass, Award, HeartHandshake } from 'lucide-react';
 import { useRef } from 'react';
+import nefaImg from '../assets/nefa.png';
 
 const Certification = () => {
   const containerRef = useRef(null);
@@ -22,10 +23,9 @@ const Certification = () => {
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-sand/60 rounded-full blur-[120px] pointer-events-none"></div>
 
         <div className="absolute inset-0 z-0">
-          <motion.img 
-            style={{ y: yParallax }}
-            src="https://images.unsplash.com/photo-1506126613632-1a43a08bdfdb?q=80&w=2500&auto=format&fit=crop" 
-            className="w-full h-[120%] object-cover object-top opacity-20 contrast-125 saturate-50 mix-blend-color-burn" 
+          <img 
+            src={nefaImg} 
+            className="w-full h-full object-contain object-center opacity-10" 
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-sand/30 to-sand z-10"></div>
         </div>

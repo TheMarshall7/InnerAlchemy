@@ -76,10 +76,15 @@ const Contact = () => {
                     <input type="email" placeholder="Email Address" required className="w-full bg-transparent border-b border-deepbrown/20 py-4 text-deepbrown placeholder:text-deepbrown/40 focus:border-terracotta outline-none transition-colors font-light text-sm md:text-base"/>
                     <select required className="w-full bg-transparent border-b border-deepbrown/20 py-4 text-deepbrown focus:border-terracotta outline-none transition-colors font-light cursor-pointer text-sm md:text-base appearance-none">
                       <option value="" disabled selected>Select an Interest</option>
-                      <option value="access-bars">Access BARS Session</option>
-                      <option value="trauma-release">Emotional Trauma Release</option>
-                      <option value="energy-facelift">Energetic Facelift</option>
-                      <option value="certification">7-Path Certification</option>
+                      <option value="hypnotherapy">Inner Alchemy Hypnotherapy</option>
+                      <option value="access-bars">Access BARS Session (90 min · $75)</option>
+                      <option value="mtvss">MTVSS Immune System (60 min · $75)</option>
+                      <option value="trauma-release">Emotional Trauma Release (60 min · $75)</option>
+                      <option value="energy-facelift">Energetic Facelift (60 min · $75)</option>
+                      <option value="brain-capacity">Brain Capacity Activation (60 min · $75)</option>
+                      <option value="manifestation">Manifestation Energy Activation (60 min · $75)</option>
+                      <option value="full-moon">Full Moon Meditation & Mantras ($45)</option>
+                      <option value="certification">7-Path Self-Hypnosis Certification</option>
                       <option value="other">General Inquiry</option>
                     </select>
                     <textarea placeholder="Your Message" rows={3} required className="w-full bg-transparent border-b border-deepbrown/20 py-4 text-deepbrown placeholder:text-deepbrown/40 focus:border-terracotta outline-none transition-colors font-light resize-none mt-4 text-sm md:text-base"></textarea>

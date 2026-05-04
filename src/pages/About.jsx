@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import nefaImg from '../assets/nefa.png';
 
 const About = () => {
   const containerRef = useRef(null);
@@ -41,12 +42,11 @@ const About = () => {
 
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }} className="md:col-span-6 lg:col-span-5 relative mt-16 md:mt-0 flex justify-center">
             {/* The Arch Frame */}
-            <div className="w-[85%] md:w-full h-[60vh] md:h-[75vh] rounded-t-full overflow-hidden relative shadow-2xl border-t-2 border-white/60 bg-dust">
-               <motion.img 
-                 style={{ y: yParallax }}
-                 src="https://images.unsplash.com/photo-1506126613632-1a43a08bdfdb?q=80&w=2000&auto=format&fit=crop" 
-                 alt="Portrait/Meditation" 
-                 className="absolute top-[-10%] left-0 w-full h-[120%] object-cover contrast-110 saturate-50 mix-blend-multiply opacity-80"
+            <div className="w-[85%] md:w-full h-[60vh] md:h-[75vh] rounded-t-full overflow-hidden relative shadow-2xl border-t-2 border-white/60 bg-dust flex items-center justify-center">
+               <img 
+                 src={nefaImg} 
+                 alt="Nefa Jebrin" 
+                 className="w-full h-full object-cover object-top"
                />
                <div className="absolute inset-0 bg-gradient-to-t from-sand/50 via-transparent to-transparent"></div>
             </div>
@@ -97,6 +97,61 @@ const About = () => {
             </motion.div>
           </div>
 
+        </div>
+      </section>
+
+      {/* EMOTIONAL ALCHEMY PHILOSOPHY */}
+      <section className="py-24 md:py-40 bg-earth relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-sand to-transparent"></div>
+        <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+            <span className="text-sand/60 tracking-[0.3em] text-[9px] uppercase font-semibold mb-8 block">The Secret Alchemy</span>
+            <h2 className="text-4xl md:text-6xl font-serif text-sand mb-12 leading-tight">
+              Emotions are not problems.<br/>
+              <span className="italic text-terracotta">They are portals.</span>
+            </h2>
+            <p className="text-sand/70 font-light text-lg md:text-xl leading-loose max-w-3xl mx-auto mb-16">
+              I teach a different relationship to feeling. When we meet our emotions with presence, devotion, and reverence — instead of avoidance — they purify rather than overwhelm. Sadness softens. Anger reveals truth. Fear initiates growth. Your soul already knows the way.
+            </p>
+            <div className="grid sm:grid-cols-3 gap-8 text-left mt-8">
+              {[
+                { emotion: "Sadness", alchemy: "Softens into compassion when held with safety." },
+                { emotion: "Anger", alchemy: "Reveals truth and calls forth healthy boundaries." },
+                { emotion: "Fear", alchemy: "Initiates growth when walked through with presence." }
+              ].map((item, i) => (
+                <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.15 }} className="border border-sand/10 p-8 bg-white/5 backdrop-blur-sm">
+                  <h4 className="text-terracotta font-serif text-2xl italic mb-3">{item.emotion}</h4>
+                  <p className="text-sand/60 font-light text-sm leading-relaxed">{item.alchemy}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* WHY ETERNAL SOURCE ACADEMY */}
+      <section className="py-24 md:py-40 bg-dust relative overflow-hidden">
+        <div className="max-w-[1400px] mx-auto px-6 relative z-10">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="mb-16 md:mb-24 border-b border-deepbrown/10 pb-12">
+            <span className="text-ochre tracking-[0.25em] text-[9px] uppercase font-semibold mb-4 block">Why people choose</span>
+            <h2 className="text-4xl md:text-6xl font-serif text-deepbrown leading-tight">Eternal Source<br/><span className="italic text-clay">Academy.</span></h2>
+          </motion.div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              { title: "Safe & Supportive", desc: "Every session and course is held in a compassionate, non-judgmental container where healing unfolds at the right pace for you." },
+              { title: "Subconscious-First", desc: "We work at the level where real change happens — not the 5% conscious mind, but the 95% subconscious where your patterns truly live." },
+              { title: "Practical Tools", desc: "You leave with real practices — self-hypnosis, recognitions, and somatic tools — not just concepts or temporary relief." },
+              { title: "High-Frequency Teachings", desc: "Rooted in spiritual psychology, Access Consciousness, and Source remembrance work that elevates your entire frequency." },
+              { title: "Authentic Presence", desc: "Nefa brings heart-centered, lived experience to every session. She has walked the path herself and guides from genuine embodiment." },
+              { title: "Global Access", desc: "Work with Nefa in person, on Zoom, or via WhatsApp. Transformation is available wherever you are in the world." }
+            ].map((item, i) => (
+              <motion.div key={i} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="p-10 bg-white/50 border border-white shadow-xl hover:bg-white transition-colors duration-500">
+                <span className="text-terracotta font-serif text-4xl italic leading-none block mb-6">{String(i + 1).padStart(2, '0')}</span>
+                <h3 className="text-deepbrown font-serif text-xl mb-4">{item.title}</h3>
+                <p className="text-earth font-light text-sm leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
