@@ -28,12 +28,12 @@ const Home = () => {
         <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-terracotta/10 rounded-full blur-[120px] pointer-events-none mix-blend-multiply"></div>
         <div className="absolute bottom-[-10%] left-[-10%] w-[800px] h-[800px] bg-white/50 rounded-full blur-[120px] pointer-events-none"></div>
 
-        <div className="w-full max-w-[1600px] mx-auto px-6 md:px-12 grid md:grid-cols-12 gap-8 md:gap-16 items-center relative z-10">
+        <div className="w-full max-w-[1600px] mx-auto px-6 md:px-12 grid md:grid-cols-12 gap-0 items-center relative z-10">
           
           <motion.div initial="hidden" animate="visible" variants={{
             hidden: { opacity: 0 },
             visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
-          }} className="md:col-span-6 lg:col-span-7 pt-12 md:pt-0 z-20">
+          }} className="md:col-span-6 lg:col-span-7 pt-20 md:pt-16 pl-6 md:pl-24 z-20">
             <motion.div variants={fadeUp} className="flex items-center gap-4 mb-8">
               <div className="h-px w-12 bg-terracotta/40"></div>
               <span className="text-ochre tracking-[0.25em] text-[8px] md:text-[10px] uppercase font-semibold">Eternal Source Academy</span>
@@ -62,7 +62,7 @@ const Home = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-            className="md:col-span-6 lg:col-span-5 h-[60vh] md:h-[85vh] w-full relative mt-16 md:mt-0"
+            className="md:col-span-6 lg:col-span-5 h-[60vh] md:h-[85vh] w-full relative mt-16 md:mt-0 pt-0 md:pt-12 pr-6 md:pr-24"
           >
             {/* The Arch Frame */}
             <div className="w-full h-full rounded-t-[200px] overflow-hidden relative shadow-[0_20px_50px_rgba(42,31,26,0.05)] border-t-4 border-l border-r border-white/60 bg-dust flex items-center justify-center">
@@ -71,15 +71,9 @@ const Home = () => {
                  alt="Nefa Jebrin" 
                  className="w-full h-full object-cover object-top"
                />
-               <div className="absolute inset-0 bg-gradient-to-t from-sand/60 via-transparent to-transparent"></div>
+
             </div>
-            
-            {/* Floating Ornamental SVG */}
-            <div className="absolute -bottom-6 -left-6 md:bottom-20 md:-left-16 bg-white/70 backdrop-blur-md p-6 rounded-full shadow-2xl animate-[spin_20s_linear_infinite]">
-               <svg viewBox="0 0 100 100" className="w-16 h-16 md:w-24 md:h-24 text-terracotta" fill="currentColor">
-                 <path d="M50 0 C55 40 60 45 100 50 C60 55 55 60 50 100 C45 60 40 55 0 50 C40 45 45 40 50 0 Z" />
-               </svg>
-            </div>
+
           </motion.div>
 
         </div>
@@ -98,78 +92,135 @@ const Home = () => {
         </motion.div>
       </div>
 
-      {/* 3. ATMOSPHERIC STATEMENT (Refined) */}
-      <section className="py-24 md:py-48 relative bg-sand z-20">
-        <div className="absolute left-0 top-1/2 w-32 md:w-64 h-[1px] bg-terracotta/20"></div>
-        <div className="absolute right-0 top-1/2 w-32 md:w-64 h-[1px] bg-terracotta/20"></div>
+      {/* 3. ATMOSPHERIC STATEMENT (Upgraded Premium Design) */}
+      <section className="py-32 md:py-56 relative bg-sand z-20 overflow-hidden">
+        {/* Subtle background glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/40 rounded-full blur-[120px] pointer-events-none"></div>
         
-        <div className="max-w-4xl mx-auto px-6 text-center relative pointer-events-none">
-          <span className="text-[10rem] md:text-[15rem] font-serif text-deepbrown/5 leading-none absolute -top-16 md:-top-32 left-1/2 -translate-x-1/2">"</span>
-          <motion.h2 
-            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}
-            className="text-3xl md:text-5xl lg:text-6xl font-serif text-deepbrown leading-tight mb-12 relative z-10"
+        <div className="max-w-5xl mx-auto px-6 text-center relative">
+          
+          {/* Ornamental Icon */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
+            className="flex justify-center mb-16"
           >
-            I guide you into alignment <br/>
-            with your <span className="italic text-terracotta">highest self.</span>
-          </motion.h2>
-          <motion.p 
-            initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: 0.2 }} variants={fadeUp}
-            className="text-earth max-w-lg mx-auto text-lg md:text-xl/loose font-light relative z-10"
+            <div className="relative">
+              <div className="w-16 h-16 border border-terracotta/20 rounded-full animate-[spin_15s_linear_infinite]"></div>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-2 h-2 bg-terracotta rounded-full shadow-[0_0_15px_rgba(196,87,60,0.5)]"></div>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div 
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0, transition: { duration: 1.5, ease: [0.16, 1, 0.3, 1] } }
+            }}
+            className="relative z-10"
           >
-            A certified hypnotherapist and holistic healer. Helping you connect with your true essence, release deep emotional blocks, and awaken inner peace.
-          </motion.p>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif text-deepbrown leading-[1.1] tracking-tight mb-16">
+              I guide you into <span className="italic text-terracotta">alignment</span> <br className="hidden md:block" />
+              with your <span className="italic">highest self.</span>
+            </h2>
+            
+            <div className="w-12 h-px bg-terracotta/30 mx-auto mb-16"></div>
+            
+            <p className="text-earth max-w-2xl mx-auto text-xl md:text-2xl font-light leading-relaxed mb-12 italic">
+              "A certified hypnotherapist and holistic healer. Helping you connect with your true essence, release deep emotional blocks, and awaken inner peace."
+            </p>
+            
+            <div className="flex items-center justify-center gap-4">
+              <div className="h-[1px] w-8 bg-ochre/20"></div>
+              <span className="text-[10px] uppercase tracking-[0.4em] text-ochre font-bold">Nefa Jebrin</span>
+              <div className="h-[1px] w-8 bg-ochre/20"></div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
       {/* 4. THE BENTO GRID OFFERINGS (High Visual Density) */}
-      <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24 bg-dust relative z-20">
+      <section className="py-32 md:py-48 px-6 md:px-12 lg:px-24 bg-dust relative z-20">
         <div className="max-w-[1400px] mx-auto">
           
-          <div className="mb-16 md:mb-24 flex flex-col md:flex-row justify-between md:items-end gap-6 border-b border-deepbrown/10 pb-8">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-deepbrown">Explore <span className="italic text-clay">Pathways</span></h2>
-            <Link to="/services" className="text-xs uppercase tracking-widest text-ochre hover:text-deepbrown transition-colors">View the full catalog</Link>
+          <div className="mb-20 md:mb-32 flex flex-col md:flex-row justify-between md:items-end gap-8 border-b border-deepbrown/10 pb-12">
+            <div>
+              <span className="text-ochre tracking-[0.3em] text-[10px] uppercase font-semibold mb-4 block">Our Offerings</span>
+              <h2 className="text-5xl md:text-7xl lg:text-8xl font-serif text-deepbrown leading-none">Explore <span className="italic text-clay">Pathways</span></h2>
+            </div>
+            <Link to="/services" className="group flex items-center gap-3 text-xs uppercase tracking-widest text-ochre hover:text-deepbrown transition-colors">
+              View full catalog <span className="w-8 h-px bg-ochre group-hover:w-12 group-hover:bg-deepbrown transition-all"></span>
+            </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 auto-rows-[300px] md:auto-rows-[400px]">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 auto-rows-[400px] md:auto-rows-[500px]">
             
-            {/* BENTO CARD 1: Large Feature */}
-            <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="md:col-span-8 lg:col-span-7 row-span-2 group relative overflow-hidden bg-sand">
+            {/* BENTO CARD 1: Large Feature - Sacred Healing */}
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }}
+              className="md:col-span-8 lg:col-span-8 row-span-2 group relative overflow-hidden rounded-[40px] md:rounded-[80px] shadow-3xl bg-sand"
+            >
               <div className="absolute inset-0 z-0">
-                <img src="https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?q=80&w=1500&auto=format&fit=crop" alt="Holistic Healing" className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105 opacity-60 saturate-50" />
-                <div className="absolute inset-0 bg-gradient-to-t from-deepbrown/80 via-deepbrown/20 to-transparent"></div>
+                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2000&auto=format&fit=crop" alt="Sacred Healing" className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110 opacity-70 saturate-[0.2] contrast-125" />
+                <div className="absolute inset-0 bg-gradient-to-t from-deepbrown via-deepbrown/40 to-transparent"></div>
               </div>
-              <div className="absolute inset-x-8 bottom-8 md:bottom-12 z-10 flex flex-col items-start text-white">
-                <span className="uppercase tracking-[0.2em] text-[10px] mb-4 text-white/70 border border-white/20 rounded-full px-4 py-1 backdrop-blur-sm">Private Practice</span>
-                <h3 className="text-4xl md:text-5xl font-serif mb-4">Healing Sessions</h3>
-                <p className="font-light text-white/80 max-w-md mb-8 leading-relaxed">Experience Access Consciousness, deep trauma release, and nervous system regulation in profound 1:1 containers.</p>
-                <Link to="/services" className="bg-white/10 hover:bg-white text-white hover:text-deepbrown px-8 py-4 uppercase text-xs tracking-widest transition-all backdrop-blur-md">Explore Sessions</Link>
+              
+              {/* Floating element for depth */}
+              <div className="absolute top-12 right-12 w-32 h-32 border border-white/10 rounded-full animate-[spin_20s_linear_infinite] opacity-20 group-hover:opacity-40 transition-opacity"></div>
+              
+              <div className="absolute inset-x-10 bottom-10 md:inset-x-20 md:bottom-20 z-10 flex flex-col items-start text-white">
+                <span className="uppercase tracking-[0.4em] text-[9px] mb-6 text-white/60 bg-white/5 border border-white/10 rounded-full px-6 py-2 backdrop-blur-md">Sacred Sanctuary</span>
+                <h3 className="text-5xl md:text-7xl font-serif mb-8 leading-tight">Private <br/><span className="italic text-sand/60">Alchemy</span></h3>
+                <p className="font-light text-white/70 text-lg md:text-xl max-w-xl mb-12 leading-relaxed border-l border-white/20 pl-8">
+                  Experience profound 1:1 containers designed to melt away limitations and guide you home to your true nature.
+                </p>
+                <Link to="/services" className="group/btn relative overflow-hidden bg-white text-deepbrown px-10 py-5 uppercase text-xs tracking-widest transition-all rounded-full flex items-center gap-4">
+                  Explore Sessions
+                  <ArrowRight size={16} className="group-hover/btn:translate-x-2 transition-transform" />
+                </Link>
               </div>
             </motion.div>
 
-            {/* BENTO CARD 2: Training */}
-            <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }} className="md:col-span-4 lg:col-span-5 row-span-1 border border-deepbrown/10 bg-white/40 backdrop-blur-md p-8 md:p-12 flex flex-col justify-between hover:bg-white transition-colors duration-500 group">
-              <div>
-                 <span className="text-terracotta text-[10px] tracking-widest uppercase mb-4 block">Professional Training</span>
-                 <h3 className="text-3xl font-serif text-deepbrown mb-2 group-hover:text-terracotta transition-colors">7-Path Certification</h3>
-                 <p className="font-light text-earth text-sm md:text-base">Melt away limitations and learn to guide others into profound states of healing.</p>
+            {/* BENTO CARD 2: Training - Professional Mastery */}
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: 0.2 }}
+              className="md:col-span-4 lg:col-span-4 row-span-1 border border-deepbrown/10 bg-white/40 backdrop-blur-xl p-10 md:p-16 flex flex-col justify-between hover:bg-white transition-all duration-700 group rounded-[40px] md:rounded-[60px] shadow-xl hover:shadow-2xl overflow-hidden relative"
+            >
+              <div className="absolute -right-20 -top-20 w-64 h-64 bg-terracotta/5 rounded-full blur-3xl group-hover:bg-terracotta/10 transition-colors"></div>
+              
+              <div className="relative z-10">
+                 <div className="w-12 h-px bg-terracotta/40 mb-8"></div>
+                 <span className="text-terracotta text-[11px] tracking-[0.3em] uppercase mb-4 block font-semibold">Professional Mastery</span>
+                 <h3 className="text-4xl font-serif text-deepbrown mb-6 group-hover:text-terracotta transition-colors leading-tight">7-Path <br/><span className="italic">Certification</span></h3>
+                 <p className="font-light text-earth text-base md:text-lg leading-relaxed">Join an elite circle of practitioners trained in the mind–body–spirit self-hypnosis system.</p>
               </div>
-              <Link to="/certification" className="inline-flex items-center gap-3 text-xs uppercase tracking-widest text-ochre font-semibold hover:text-deepbrown transition-colors">
-                View Curriculum <ArrowRight size={14} />
+              <Link to="/certification" className="relative z-10 inline-flex items-center gap-4 text-xs uppercase tracking-widest text-ochre font-bold hover:text-deepbrown transition-colors group/link">
+                View Curriculum 
+                <span className="p-2 border border-ochre/20 rounded-full group-hover/link:bg-ochre group-hover/link:text-white transition-all">
+                  <ArrowRight size={14} />
+                </span>
               </Link>
             </motion.div>
 
-            {/* BENTO CARD 3: Courses */}
-            <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.4 }} className="md:col-span-4 lg:col-span-5 row-span-1 border border-deepbrown/10 bg-sand p-8 md:p-12 flex flex-col justify-between overflow-hidden relative group">
+            {/* BENTO CARD 3: Courses - Digital Alchemy */}
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: 0.4 }}
+              className="md:col-span-4 lg:col-span-4 row-span-1 bg-deepbrown p-10 md:p-16 flex flex-col justify-between overflow-hidden relative group rounded-[40px] md:rounded-[60px] shadow-xl hover:shadow-2xl transition-all duration-700"
+            >
               {/* Abstract decorative graphic */}
-              <div className="absolute -right-12 -bottom-12 w-48 h-48 bg-dust rounded-full blur-[40px] group-hover:bg-terracotta/20 transition-colors duration-1000"></div>
+              <div className="absolute -right-12 -bottom-12 w-64 h-64 bg-white/5 rounded-full blur-[60px] group-hover:bg-terracotta/20 transition-all duration-1000 group-hover:scale-150"></div>
               
               <div className="relative z-10">
-                 <span className="text-deepbrown/40 text-[10px] tracking-widest uppercase mb-4 block">Independent Study</span>
-                 <h3 className="text-3xl font-serif text-deepbrown mb-2">Programs & Audios</h3>
-                 <p className="font-light text-earth text-sm md:text-base">Accelerate your personal evolution with guided meditations and masterclasses.</p>
+                 <div className="w-12 h-px bg-white/20 mb-8"></div>
+                 <span className="text-white/40 text-[11px] tracking-[0.3em] uppercase mb-4 block">Independent Study</span>
+                 <h3 className="text-4xl font-serif text-white mb-6 leading-tight">Digital <br/><span className="italic text-terracotta/80">Alchemy</span></h3>
+                 <p className="font-light text-white/60 text-base md:text-lg leading-relaxed">Self-paced programs and guided audio activations for consistent inner evolution.</p>
               </div>
-              <Link to="/program" className="relative z-10 inline-flex items-center gap-3 text-xs uppercase tracking-widest text-deepbrown font-semibold hover:text-terracotta transition-colors w-max border-b border-deepbrown pb-1">
+              <Link to="/program" className="relative z-10 inline-flex items-center gap-4 text-xs uppercase tracking-widest text-white font-bold hover:text-terracotta transition-colors group/link">
                 Browse Catalog
+                <span className="p-2 border border-white/20 rounded-full group-hover/link:bg-terracotta group-hover/link:border-terracotta transition-all">
+                  <ArrowRight size={14} />
+                </span>
               </Link>
             </motion.div>
 
