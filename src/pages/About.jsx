@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ArrowLeft } from 'lucide-react';
 import nefaImg from '../assets/nefa.png';
 
 // Certificate Imports
@@ -12,12 +12,20 @@ import cert7Path from '../assets/certificates/Seven path hypnosis teacher certif
 
 const About = () => {
   const containerRef = useRef(null);
+  const galleryRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start start", "end start"] });
   const yParallax = useTransform(scrollYProgress, [0, 1], [0, 150]);
 
   const fadeUp = {
     hidden: { opacity: 0, y: 40 },
     visible: { opacity: 1, y: 0, transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] } }
+  };
+
+  const scrollGallery = (direction) => {
+    if (galleryRef.current) {
+      const scrollAmount = window.innerWidth > 768 ? 500 : window.innerWidth * 0.85;
+      galleryRef.current.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
+    }
   };
 
   const certificates = [
@@ -194,14 +202,18 @@ const About = () => {
           </div>
           <div className="flex flex-col items-start md:items-end mt-6 md:mt-0">
             <p className="text-earth font-light max-w-sm md:text-right">Rigorous training from the world's leading institutions in hypnotherapy and energetic medicine.</p>
-            <div className="flex items-center gap-2 mt-6 text-terracotta md:hidden opacity-70 animate-bounce">
-              <span className="text-[10px] tracking-widest uppercase font-semibold">Swipe to view</span>
-              <ArrowRight size={14} />
+            <div className="flex items-center gap-4 mt-6">
+              <button onClick={() => scrollGallery('left')} className="w-12 h-12 flex items-center justify-center rounded-full border border-rust text-terracotta hover:bg-rust hover:text-deepbrown transition-colors">
+                <ArrowLeft size={18} />
+              </button>
+              <button onClick={() => scrollGallery('right')} className="w-12 h-12 flex items-center justify-center rounded-full border border-rust text-terracotta hover:bg-rust hover:text-deepbrown transition-colors">
+                <ArrowRight size={18} />
+              </button>
             </div>
           </div>
         </div>
 
-        <div className="flex overflow-x-auto pb-12 px-6 gap-8 no-scrollbar cursor-grab active:cursor-grabbing snap-x snap-mandatory">
+        <div ref={galleryRef} className="flex overflow-x-auto pb-12 px-6 gap-8 no-scrollbar snap-x snap-mandatory scroll-smooth">
           {certificates.map((cert, i) => (
              <motion.div 
                key={i}
