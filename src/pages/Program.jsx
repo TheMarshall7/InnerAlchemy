@@ -91,15 +91,20 @@ const Program = () => {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 md:py-40 bg-sand text-center relative overflow-hidden px-6 border-t border-dust">
-        <div className="absolute right-0 top-0 w-[600px] h-[600px] bg-terracotta/5 rounded-full blur-[100px] pointer-events-none"></div>
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="max-w-4xl mx-auto relative z-10">
-          <h2 className="text-4xl md:text-6xl font-serif text-deepbrown mb-12">Want to become your <br/> <span className="italic text-terracotta">own healer?</span></h2>
-          <Link to="/certification" className="btn-primary inline-flex text-white w-full sm:w-auto">
-            View 7-Path Certification
-          </Link>
-        </motion.div>
+      {/* BECOME YOUR OWN HEALER (High-Impact CTA) */}
+      <section className="py-24 md:py-32 bg-clay relative overflow-hidden z-20 shadow-inner">
+        <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent"></div>
+        <div className="max-w-[1400px] mx-auto px-6 text-center relative z-10">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif text-white mb-12 leading-tight">
+              Want to become your <br/><span className="italic text-sand/80">own healer?</span>
+            </h2>
+            <Link to="/certification" className="group relative inline-flex items-center gap-6 px-12 py-6 bg-white text-clay text-xs tracking-[0.3em] uppercase font-bold rounded-full overflow-hidden transition-all hover:pr-16 hover:bg-sand">
+              View 7-Path Certification
+              <ArrowRight size={18} className="absolute right-8 opacity-0 group-hover:opacity-100 transition-all" />
+            </Link>
+          </motion.div>
+        </div>
       </section>
     </div>
   );

@@ -12,21 +12,24 @@ const Home = () => {
     offset: ["start start", "end start"]
   });
   
-  const yParallax = useTransform(scrollYProgress, [0, 1], [0, 150]);
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, 200]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, -150]);
+  const y3 = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
   const fadeUp = {
     hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } }
+    visible: { opacity: 1, y: 0, transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] } }
   };
 
   return (
     <div className="w-full bg-sand selection:bg-rust selection:text-sand" ref={containerRef}>
       
       {/* 1. HERO RE-IMAGINED (Editorial Split with Arch) */}
-      <section className="relative min-h-[100svh] pt-32 pb-20 md:py-0 flex items-center overflow-hidden">
-        {/* Soft atmospheric glow orbs */}
-        <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-terracotta/10 rounded-full blur-[120px] pointer-events-none mix-blend-multiply"></div>
-        <div className="absolute bottom-[-10%] left-[-10%] w-[800px] h-[800px] bg-white/50 rounded-full blur-[120px] pointer-events-none"></div>
+      <section className="relative min-h-[100svh] pt-32 pb-20 md:py-0 flex items-center overflow-hidden bg-dust">
+        {/* Layered Atmospheric Orbs with Parallax */}
+        <motion.div style={{ y: y1 }} className="absolute top-[-10%] right-[-5%] w-[800px] h-[800px] bg-terracotta/10 rounded-full blur-[150px] pointer-events-none mix-blend-multiply opacity-60"></motion.div>
+        <motion.div style={{ y: y2 }} className="absolute bottom-[-10%] left-[-10%] w-[900px] h-[900px] bg-white/50 rounded-full blur-[150px] pointer-events-none opacity-80"></motion.div>
+        <motion.div style={{ y: y3 }} className="absolute top-[20%] left-[15%] w-32 h-32 bg-ochre/10 rounded-full blur-[60px] pointer-events-none"></motion.div>
 
         <div className="w-full max-w-[1600px] mx-auto px-6 md:px-12 grid md:grid-cols-12 gap-0 items-center relative z-10">
           
@@ -59,13 +62,12 @@ const Home = () => {
 
           {/* Right side: Arched window with image */}
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-            className="md:col-span-6 lg:col-span-5 h-[60vh] md:h-[85vh] w-full relative mt-16 md:mt-0 pt-0 md:pt-12 pr-6 md:pr-24"
+            transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
+            className="md:col-span-6 lg:col-span-5 h-[65vh] md:h-[85vh] w-full relative mt-16 md:mt-0 pt-0 md:pt-12 pr-6 md:pr-24 group"
           >
-            {/* The Arch Frame */}
-            <div className="w-full h-full rounded-t-[200px] overflow-hidden relative shadow-[0_20px_50px_rgba(42,31,26,0.05)] border-t-4 border-l border-r border-white/60 bg-dust flex items-center justify-center">
+            {/* Multi-layered Arch Frame for Depth */}
+            <div className="absolute -inset-4 bg-terracotta/5 rounded-t-[220px] blur-2xl -z-10 group-hover:bg-terracotta/10 transition-all duration-1000"></div>
+            <div className="w-full h-full rounded-t-[200px] overflow-hidden relative shadow-[0_40px_80px_rgba(42,31,26,0.1)] border-t-4 border-l border-r border-white/60 bg-dust flex items-center justify-center">
                <img 
                  src={nefaImg} 
                  alt="Nefa Jebrin" 
@@ -140,7 +142,10 @@ const Home = () => {
       </section>
 
       {/* 4. THE BENTO GRID OFFERINGS (High Visual Density) */}
-      <section className="py-32 md:py-48 px-6 md:px-12 lg:px-24 bg-dust relative z-20">
+      <section className="py-32 md:py-48 px-6 md:px-12 lg:px-24 bg-dust relative z-20 overflow-hidden">
+        {/* Parallax Orbs for Section Depth */}
+        <motion.div style={{ y: y2 }} className="absolute top-[10%] right-[-10%] w-[600px] h-[600px] bg-terracotta/5 rounded-full blur-[120px] pointer-events-none"></motion.div>
+        <motion.div style={{ y: y1 }} className="absolute bottom-[20%] left-[-5%] w-[400px] h-[400px] bg-white/30 rounded-full blur-[100px] pointer-events-none"></motion.div>
         <div className="max-w-[1400px] mx-auto">
           
           <div className="mb-20 md:mb-32 flex flex-col md:flex-row justify-between md:items-end gap-8 border-b border-deepbrown/10 pb-12">
@@ -157,8 +162,8 @@ const Home = () => {
             
             {/* BENTO CARD 1: Large Feature - Sacred Healing */}
             <motion.div 
-              initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }}
-              className="md:col-span-8 lg:col-span-8 row-span-2 group relative overflow-hidden rounded-[40px] md:rounded-[80px] shadow-3xl bg-sand"
+              initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1.2 }}
+              className="md:col-span-8 lg:col-span-8 row-span-2 group relative overflow-hidden rounded-[40px] md:rounded-[80px] shadow-3xl bg-sand hover:shadow-[0_60px_100px_rgba(42,31,26,0.15)] transition-all duration-700 hover:-translate-y-2"
             >
               <div className="absolute inset-0 z-0">
                 <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2000&auto=format&fit=crop" alt="Sacred Healing" className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110 opacity-70 saturate-[0.2] contrast-125" />
@@ -183,8 +188,8 @@ const Home = () => {
 
             {/* BENTO CARD 2: Training - Professional Mastery */}
             <motion.div 
-              initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: 0.2 }}
-              className="md:col-span-4 lg:col-span-4 row-span-1 border border-deepbrown/10 bg-white/40 backdrop-blur-xl p-10 md:p-16 flex flex-col justify-between hover:bg-white transition-all duration-700 group rounded-[40px] md:rounded-[60px] shadow-xl hover:shadow-2xl overflow-hidden relative"
+              initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 1.2, delay: 0.2 }}
+              className="md:col-span-4 lg:col-span-4 row-span-1 border border-deepbrown/10 bg-white/40 backdrop-blur-xl p-10 md:p-16 flex flex-col justify-between hover:bg-white transition-all duration-700 group rounded-[40px] md:rounded-[60px] shadow-xl hover:shadow-[0_40px_80px_rgba(42,31,26,0.1)] overflow-hidden relative hover:-translate-y-2"
             >
               <div className="absolute -right-20 -top-20 w-64 h-64 bg-terracotta/5 rounded-full blur-3xl group-hover:bg-terracotta/10 transition-colors"></div>
               
@@ -204,8 +209,8 @@ const Home = () => {
 
             {/* BENTO CARD 3: Courses - Digital Alchemy */}
             <motion.div 
-              initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: 0.4 }}
-              className="md:col-span-4 lg:col-span-4 row-span-1 bg-deepbrown p-10 md:p-16 flex flex-col justify-between overflow-hidden relative group rounded-[40px] md:rounded-[60px] shadow-xl hover:shadow-2xl transition-all duration-700"
+              initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 1.2, delay: 0.4 }}
+              className="md:col-span-4 lg:col-span-4 row-span-1 bg-deepbrown p-10 md:p-16 flex flex-col justify-between overflow-hidden relative group rounded-[40px] md:rounded-[60px] shadow-xl hover:shadow-[0_40px_80px_rgba(42,31,26,0.3)] transition-all duration-700 hover:-translate-y-2"
             >
               {/* Abstract decorative graphic */}
               <div className="absolute -right-12 -bottom-12 w-64 h-64 bg-white/5 rounded-full blur-[60px] group-hover:bg-terracotta/20 transition-all duration-1000 group-hover:scale-150"></div>
@@ -228,7 +233,23 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 5. THE ECHO (Testimonial Highlight) */}
+      {/* 5. BECOME YOUR OWN HEALER (New High-Impact CTA) */}
+      <section className="py-24 md:py-32 bg-clay relative overflow-hidden z-20 shadow-inner">
+        <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent"></div>
+        <div className="max-w-[1400px] mx-auto px-6 text-center relative z-10">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif text-white mb-12 leading-tight">
+              Want to become your <br/><span className="italic text-sand/80">own healer?</span>
+            </h2>
+            <Link to="/certification" className="group relative inline-flex items-center gap-6 px-12 py-6 bg-white text-clay text-xs tracking-[0.3em] uppercase font-bold rounded-full overflow-hidden transition-all hover:pr-16 hover:bg-sand">
+              View 7-Path Certification
+              <ArrowRight size={18} className="absolute right-8 opacity-0 group-hover:opacity-100 transition-all" />
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 6. THE ECHO (Testimonial Highlight) */}
       <section className="py-24 md:py-40 relative z-20 bg-sand overflow-hidden flex items-center justify-center border-t border-dust px-6">
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="bg-white/60 backdrop-blur-xl border border-white shadow-2xl p-12 md:p-20 rounded-[40px] rounded-tl-none relative">

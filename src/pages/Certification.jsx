@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Compass, Award, HeartHandshake } from 'lucide-react';
+import { Compass, Award, HeartHandshake, ArrowRight } from 'lucide-react';
 import { useRef } from 'react';
 import nefaImg from '../assets/nefa.png';
 
@@ -99,33 +99,19 @@ const Certification = () => {
         </div>
       </section>
 
-      {/* OUTCOME & CTA */}
-      <section className="py-32 md:py-48 bg-sand text-center relative overflow-hidden px-6">
-        <div className="absolute -left-1/4 -bottom-1/4 w-[800px] h-[800px] bg-terracotta/5 rounded-full blur-[100px] pointer-events-none"></div>
-        <div className="max-w-[1400px] mx-auto relative z-10">
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif text-deepbrown mb-16 md:mb-24">What's <span className="italic text-terracotta">Included?</span></h2>
-          
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 mb-16 md:mb-24 text-left">
-            <div className="p-12 md:p-16 relative bg-dust hover:bg-white transition-colors duration-500 rounded-[40px] shadow-xl overflow-hidden group">
-              <div className="absolute top-[-20%] right-[-10%] opacity-5 group-hover:text-terracotta transition-colors duration-700 pointer-events-none"><Award size={250} strokeWidth={0.2} className="text-deepbrown"/></div>
-              <h3 className="text-3xl md:text-5xl font-serif text-deepbrown mb-8 relative z-10">The Curriculum</h3>
-              <ul className="text-earth font-light leading-relaxed relative z-10 space-y-4 text-sm md:text-base border-l border-terracotta/30 pl-6">
-                 <li>✧ 9 Video Lessons</li>
-                 <li>✧ Full explanations of all Recognitions</li>
-                 <li>✧ Guided Self-Hypnosis Sessions</li>
-                 <li>✧ PDF Worksheets & Journal Prompts</li>
-                 <li>✧ Delta Connection Practices</li>
-              </ul>
-            </div>
-            
-            <div className="p-12 md:p-16 relative bg-dust hover:bg-white transition-colors duration-500 rounded-[40px] shadow-xl overflow-hidden group">
-               <div className="absolute top-[-20%] right-[-10%] opacity-5 group-hover:text-terracotta transition-colors duration-700 pointer-events-none"><HeartHandshake size={250} strokeWidth={0.2} className="text-deepbrown"/></div>
-              <h3 className="text-3xl md:text-5xl font-serif text-deepbrown mb-8 relative z-10">Build Your Practice</h3>
-              <p className="text-earth font-light leading-relaxed relative z-10 border-l border-terracotta/30 pl-6 text-sm md:text-base">You will receive an official certification that empowers you to start your own holistic business. Step into your purpose, utilizing a highly profound framework that commands premium rates and changes lives globally.</p>
-            </div>
-          </div>
-
-          <Link to="/contact" className="btn-primary shadow-2xl hover:shadow-terracotta/20 w-full sm:w-auto">Apply for Certification</Link>
+      {/* BECOME THE HEALER (High-Impact CTA) */}
+      <section className="py-24 md:py-32 bg-clay relative overflow-hidden z-20 shadow-inner">
+        <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent"></div>
+        <div className="max-w-[1400px] mx-auto px-6 text-center relative z-10">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif text-white mb-12 leading-tight">
+              Ready to awaken your <br/><span className="italic text-sand/80">inner master?</span>
+            </h2>
+            <Link to="/contact" className="group relative inline-flex items-center gap-6 px-12 py-6 bg-white text-clay text-xs tracking-[0.3em] uppercase font-bold rounded-full overflow-hidden transition-all hover:pr-16 hover:bg-sand">
+              Apply for Certification
+              <ArrowRight size={18} className="absolute right-8 opacity-0 group-hover:opacity-100 transition-all" />
+            </Link>
+          </motion.div>
         </div>
       </section>
     </div>
