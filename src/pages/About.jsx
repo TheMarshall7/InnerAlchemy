@@ -192,7 +192,13 @@ const About = () => {
             <span className="text-ochre tracking-[0.25em] text-[9px] uppercase font-semibold mb-4 block">Certified Excellence</span>
             <h2 className="text-4xl md:text-6xl font-serif text-deepbrown leading-tight">Lineage & <br/><span className="italic text-terracotta">Accreditations.</span></h2>
           </div>
-          <p className="text-earth font-light max-w-sm md:text-right mt-6 md:mt-0">Rigorous training from the world's leading institutions in hypnotherapy and energetic medicine.</p>
+          <div className="flex flex-col items-start md:items-end mt-6 md:mt-0">
+            <p className="text-earth font-light max-w-sm md:text-right">Rigorous training from the world's leading institutions in hypnotherapy and energetic medicine.</p>
+            <div className="flex items-center gap-2 mt-6 text-terracotta md:hidden opacity-70 animate-bounce">
+              <span className="text-[10px] tracking-widest uppercase font-semibold">Swipe to view</span>
+              <ArrowRight size={14} />
+            </div>
+          </div>
         </div>
 
         <div className="flex overflow-x-auto pb-12 px-6 gap-8 no-scrollbar cursor-grab active:cursor-grabbing snap-x snap-mandatory">
