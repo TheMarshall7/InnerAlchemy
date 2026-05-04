@@ -166,7 +166,7 @@ const Home = () => {
               className="md:col-span-8 lg:col-span-8 row-span-2 group relative overflow-hidden rounded-[40px] md:rounded-[80px] shadow-3xl bg-sand hover:shadow-[0_60px_100px_rgba(42,31,26,0.15)] transition-all duration-700 hover:-translate-y-2"
             >
               <div className="absolute inset-0 z-0">
-                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2000&auto=format&fit=crop" alt="Sacred Healing" className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110 opacity-70 saturate-[0.2] contrast-125" />
+                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1200&auto=format&fit=crop" alt="Sacred Healing" className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110 opacity-70 saturate-[0.2] contrast-125" />
                 <div className="absolute inset-0 bg-gradient-to-t from-deepbrown via-deepbrown/40 to-transparent"></div>
               </div>
               
