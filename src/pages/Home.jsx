@@ -36,7 +36,7 @@ const Home = () => {
           <motion.div initial="hidden" animate="visible" variants={{
             hidden: { opacity: 0 },
             visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
-          }} className="md:col-span-6 lg:col-span-7 pt-20 md:pt-16 pl-6 md:pl-24 z-20">
+          }} className="md:col-span-6 lg:col-span-7 pt-20 md:pt-16 md:pl-24 z-20">
             <motion.div variants={fadeUp} className="flex items-center gap-4 mb-8">
               <div className="h-px w-12 bg-terracotta/40"></div>
               <span className="text-ochre tracking-[0.25em] text-[8px] md:text-[10px] uppercase font-semibold">Eternal Source Academy</span>
@@ -48,11 +48,11 @@ const Home = () => {
               <span className="block text-5xl md:text-7xl lg:text-8xl font-light pl-8 md:pl-24 -mt-2 md:-mt-8">Alchemy.</span>
             </motion.h1>
             
-            <motion.p variants={fadeUp} className="text-earth text-base md:text-xl font-light leading-relaxed max-w-md mt-10 md:mt-16 pl-6 border-l w-[calc(100%-1.5rem)] border-deepbrown/10">
+            <motion.p variants={fadeUp} className="text-earth text-base md:text-xl font-light leading-relaxed max-w-md mt-10 md:mt-16 border-l w-[calc(100%-1.5rem)] border-deepbrown/10 pl-6">
               A sanctuary for those who are ready to heal, evolve, and remember. Bridging subconscious reprogramming with profound energy work.
             </motion.p>
             
-            <motion.div variants={fadeUp} className="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-10 pl-6">
+            <motion.div variants={fadeUp} className="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-10">
               <Link to="/program" className="btn-primary w-full sm:w-auto text-center">Begin Your Journey</Link>
               <Link to="/services" className="text-xs flex items-center gap-2 tracking-widest uppercase text-earth hover:text-terracotta transition-colors group">
                 Private Sessions <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
@@ -63,7 +63,7 @@ const Home = () => {
           {/* Right side: Arched window with image */}
           <motion.div 
             transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
-            className="md:col-span-6 lg:col-span-5 h-[65vh] md:h-[85vh] w-full relative mt-16 md:mt-0 pt-0 md:pt-12 pr-6 md:pr-24 group"
+            className="md:col-span-6 lg:col-span-5 h-[65vh] md:h-[85vh] w-full relative mt-16 md:mt-0 pt-0 md:pt-12 md:pr-24 group"
           >
             {/* Multi-layered Arch Frame for Depth */}
             <div className="absolute -inset-4 bg-terracotta/5 rounded-t-[220px] blur-2xl -z-10 group-hover:bg-terracotta/10 transition-all duration-1000"></div>
