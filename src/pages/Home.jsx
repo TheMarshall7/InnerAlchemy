@@ -1,25 +1,31 @@
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useMotionValue } from 'framer-motion';
 import { useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 
-import nefaImg from '../assets/nefa.png';
+import ResponsiveNefaImage from '../components/ResponsiveNefaImage';
+import { useIsMobile } from '../hooks/useIsMobile';
 import { SEVEN_PATH_AWAKENING_PRICE } from '../constants/links';
 
 const Home = () => {
+  const isMobile = useIsMobile();
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"]
   });
   
+  const staticY = useMotionValue(0);
   const y1 = useTransform(scrollYProgress, [0, 1], [0, 200]);
   const y2 = useTransform(scrollYProgress, [0, 1], [0, -150]);
   const y3 = useTransform(scrollYProgress, [0, 1], [0, 100]);
+  const orbY1 = isMobile ? staticY : y1;
+  const orbY2 = isMobile ? staticY : y2;
+  const orbY3 = isMobile ? staticY : y3;
 
   const fadeUp = {
-    hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] } }
+    hidden: { opacity: 0, y: isMobile ? 16 : 40 },
+    visible: { opacity: 1, y: 0, transition: { duration: isMobile ? 0.6 : 1.2, ease: [0.16, 1, 0.3, 1] } }
   };
 
   return (
@@ -27,10 +33,10 @@ const Home = () => {
       
       {/* 1. HERO RE-IMAGINED (Editorial Split with Arch) */}
       <section className="relative min-h-[100svh] pt-32 pb-20 md:py-0 flex items-center overflow-hidden bg-dust">
-        {/* Layered Atmospheric Orbs with Parallax */}
-        <motion.div style={{ y: y1 }} className="absolute top-[-10%] right-[-5%] w-[800px] h-[800px] bg-terracotta/10 rounded-full blur-[150px] pointer-events-none mix-blend-multiply opacity-60"></motion.div>
-        <motion.div style={{ y: y2 }} className="absolute bottom-[-10%] left-[-10%] w-[900px] h-[900px] bg-white/50 rounded-full blur-[150px] pointer-events-none opacity-80"></motion.div>
-        <motion.div style={{ y: y3 }} className="absolute top-[20%] left-[15%] w-32 h-32 bg-ochre/10 rounded-full blur-[60px] pointer-events-none"></motion.div>
+        {/* Layered Atmospheric Orbs with Parallax — desktop only */}
+        <motion.div style={{ y: orbY1 }} className="hidden md:block absolute top-[-10%] right-[-5%] w-[800px] h-[800px] bg-terracotta/10 rounded-full blur-[150px] pointer-events-none mix-blend-multiply opacity-60"></motion.div>
+        <motion.div style={{ y: orbY2 }} className="hidden md:block absolute bottom-[-10%] left-[-10%] w-[900px] h-[900px] bg-white/50 rounded-full blur-[150px] pointer-events-none opacity-80"></motion.div>
+        <motion.div style={{ y: orbY3 }} className="hidden md:block absolute top-[20%] left-[15%] w-32 h-32 bg-ochre/10 rounded-full blur-[60px] pointer-events-none"></motion.div>
 
         <div className="w-full max-w-[1600px] mx-auto px-6 md:px-12 grid md:grid-cols-12 gap-0 items-center relative z-10">
           
@@ -64,15 +70,15 @@ const Home = () => {
           {/* Right side: Arched window with image */}
           <motion.div 
             transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
-            className="md:col-span-6 lg:col-span-5 h-[50vh] sm:h-[55vh] md:h-[85vh] w-full relative mt-10 sm:mt-16 md:mt-0 pt-0 md:pt-12 md:pr-12 lg:pr-24 group"
+            className="md:col-span-6 lg:col-span-5 w-full relative mt-10 sm:mt-16 md:mt-0 md:h-[85vh] pt-0 md:pt-12 md:pr-12 lg:pr-24 group"
           >
             {/* Multi-layered Arch Frame for Depth */}
-            <div className="absolute -inset-4 bg-terracotta/5 rounded-t-[140px] sm:rounded-t-[180px] md:rounded-t-[220px] blur-2xl -z-10 group-hover:bg-terracotta/10 transition-all duration-1000"></div>
-            <div className="w-full h-full rounded-t-[120px] sm:rounded-t-[160px] md:rounded-t-[200px] overflow-hidden relative shadow-[0_40px_80px_rgba(42,31,26,0.1)] border-t-4 border-l border-r border-white/60 bg-dust flex items-center justify-center">
-               <img 
-                 src={nefaImg} 
-                 alt="Nefa Jebrin" 
-                 className="w-full h-full object-cover object-top"
+            <div className="absolute -inset-4 bg-terracotta/5 rounded-t-[140px] sm:rounded-t-[180px] md:rounded-t-[220px] blur-2xl -z-10 group-hover:bg-terracotta/10 transition-all duration-1000 hidden md:block"></div>
+            <div className="w-full h-auto md:h-full rounded-[24px] sm:rounded-t-[160px] md:rounded-t-[200px] overflow-hidden relative shadow-[0_40px_80px_rgba(42,31,26,0.1)] border border-white/60 md:border-t-4 md:border-l md:border-r bg-dust flex items-center justify-center">
+               <ResponsiveNefaImage
+                 className="w-full h-auto max-h-[75vh] md:max-h-none md:h-full object-contain object-center md:object-cover md:object-top"
+                 loading="eager"
+                 fetchPriority="high"
                />
 
             </div>
@@ -86,8 +92,8 @@ const Home = () => {
       <div className="w-full overflow-hidden bg-earth py-4 border-y border-deepbrown/10 shadow-inner">
         <motion.div 
           animate={{ x: [0, -1000] }}
-          transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
-          className="flex whitespace-nowrap text-sand/80 text-xs md:text-sm tracking-[0.3em] uppercase font-light"
+          transition={{ repeat: Infinity, duration: isMobile ? 40 : 25, ease: "linear" }}
+          className="marquee-track flex whitespace-nowrap text-sand/80 text-xs md:text-sm tracking-[0.3em] uppercase font-light"
         >
           {Array(8).fill("✧ HOLISTIC ALCHEMY: HEALING | HYPNOTHERAPY | TRANSFORMATION ✧ ").map((text, i) => (
             <span key={i} className="mx-6">{text}</span>
@@ -98,7 +104,7 @@ const Home = () => {
       {/* 3. ATMOSPHERIC STATEMENT (Upgraded Premium Design) */}
       <section className="py-20 md:py-32 lg:py-56 relative bg-sand z-20 overflow-hidden">
         {/* Subtle background glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/40 rounded-full blur-[120px] pointer-events-none"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/40 rounded-full blur-[120px] pointer-events-none hidden md:block"></div>
         
         <div className="max-w-5xl mx-auto px-6 text-center relative">
           
@@ -145,8 +151,8 @@ const Home = () => {
       {/* 4. THE BENTO GRID OFFERINGS (High Visual Density) */}
       <section className="py-20 md:py-32 lg:py-48 px-4 sm:px-6 md:px-12 lg:px-24 bg-dust relative z-20 overflow-hidden">
         {/* Parallax Orbs for Section Depth */}
-        <motion.div style={{ y: y2 }} className="absolute top-[10%] right-[-10%] w-[600px] h-[600px] bg-terracotta/5 rounded-full blur-[120px] pointer-events-none"></motion.div>
-        <motion.div style={{ y: y1 }} className="absolute bottom-[20%] left-[-5%] w-[400px] h-[400px] bg-white/30 rounded-full blur-[100px] pointer-events-none"></motion.div>
+        <motion.div style={{ y: orbY2 }} className="hidden md:block absolute top-[10%] right-[-10%] w-[600px] h-[600px] bg-terracotta/5 rounded-full blur-[120px] pointer-events-none"></motion.div>
+        <motion.div style={{ y: orbY1 }} className="hidden md:block absolute bottom-[20%] left-[-5%] w-[400px] h-[400px] bg-white/30 rounded-full blur-[100px] pointer-events-none"></motion.div>
         <div className="max-w-[1400px] mx-auto">
           
           <div className="mb-20 md:mb-32 flex flex-col md:flex-row justify-between md:items-end gap-8 border-b border-deepbrown/10 pb-12">
@@ -167,7 +173,7 @@ const Home = () => {
               className="md:col-span-8 lg:col-span-8 row-span-2 group relative overflow-hidden rounded-[40px] md:rounded-[80px] shadow-3xl bg-sand hover:shadow-[0_60px_100px_rgba(42,31,26,0.15)] transition-all duration-700 hover:-translate-y-2"
             >
               <div className="absolute inset-0 z-0">
-                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1200&auto=format&fit=crop" alt="Sacred Healing" className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110 opacity-70 saturate-[0.2] contrast-125" />
+                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=70&w=800&auto=format&fit=crop" alt="Sacred Healing" loading="lazy" decoding="async" className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110 opacity-70 saturate-[0.2] contrast-125" />
                 <div className="absolute inset-0 bg-gradient-to-t from-deepbrown via-deepbrown/40 to-transparent"></div>
               </div>
               

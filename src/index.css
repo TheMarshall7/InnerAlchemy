@@ -32,6 +32,18 @@
   ::-webkit-scrollbar-thumb {
     @apply bg-rust rounded-full;
   }
+
+  @media (max-width: 767px) {
+    .noise-overlay {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation: none !important;
+    }
+  }
 }
 
 @layer components {

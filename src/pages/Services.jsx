@@ -65,7 +65,7 @@ const Services = () => {
                 
                 {/* Image Side */}
                 <div className={`md:col-span-5 h-[280px] sm:h-[350px] md:h-[500px] relative overflow-hidden rounded-[32px] sm:rounded-[40px] md:rounded-[80px] shadow-2xl ${isEven ? 'order-1' : 'order-1 md:order-2'} p-2 md:p-4 bg-white/10 backdrop-blur-sm border border-white/20`}>
-                  <img src={typeof service.img === 'string' && service.img.includes('unsplash') ? `${service.img}?q=80&w=1200&auto=format&fit=crop` : service.img} alt={service.title} className="w-full h-full object-cover object-center rounded-[32px] md:rounded-[64px] opacity-80 saturate-50 contrast-110 group-hover:scale-105 transition-transform duration-[2s] ease-out" />
+                  <img src={typeof service.img === 'string' && service.img.includes('unsplash') ? `${service.img.split('?')[0]}?q=70&w=800&auto=format&fit=crop` : service.img} alt={service.title} loading="lazy" decoding="async" className="w-full h-full object-cover object-center rounded-[32px] md:rounded-[64px] opacity-80 saturate-50 contrast-110 group-hover:scale-105 transition-transform duration-[2s] ease-out" />
                   <div className="absolute inset-0 bg-deepbrown/10 mix-blend-multiply"></div>
                   {/* Floating Number overlap */}
                   <div className="absolute -top-6 -left-6 md:-top-4 md:-left-4 text-[6rem] md:text-[10rem] font-serif text-white/40 mix-blend-overlay leading-none italic pointer-events-none">{service.num}</div>

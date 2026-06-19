@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import { ArrowRight, ArrowLeft } from 'lucide-react';
-import nefaImg from '../assets/nefa.png';
+import ResponsiveNefaImage from '../components/ResponsiveNefaImage';
+import { useIsMobile } from '../hooks/useIsMobile';
 
 // Certificate Imports
 import certAccess from '../assets/certificates/Access bars facilitator degree certificate.jpg';
@@ -11,14 +12,13 @@ import certNGH from '../assets/certificates/National Guild of hypnotist certific
 import cert7Path from '../assets/certificates/Seven path hypnosis teacher certificate.jpg';
 
 const About = () => {
+  const isMobile = useIsMobile();
   const containerRef = useRef(null);
   const galleryRef = useRef(null);
-  const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start start", "end start"] });
-  const yParallax = useTransform(scrollYProgress, [0, 1], [0, 150]);
 
   const fadeUp = {
-    hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] } }
+    hidden: { opacity: 0, y: isMobile ? 16 : 40 },
+    visible: { opacity: 1, y: 0, transition: { duration: isMobile ? 0.6 : 1.2, ease: [0.16, 1, 0.3, 1] } }
   };
 
   const scrollGallery = (direction) => {
@@ -57,8 +57,8 @@ const About = () => {
       {/* HERO WITH PORTRAIT ARCH */}
       <section className="relative min-h-[90svh] pt-32 pb-20 md:py-0 flex items-center overflow-hidden">
         {/* Glowing orbs */}
-        <div className="absolute top-1/4 -right-1/4 w-[800px] h-[800px] bg-terracotta/5 rounded-full blur-[100px] pointer-events-none"></div>
-        <div className="absolute bottom-[-10%] -left-[10%] w-[600px] h-[600px] bg-white/40 rounded-full blur-[100px] pointer-events-none"></div>
+        <div className="absolute top-1/4 -right-1/4 w-[800px] h-[800px] bg-terracotta/5 rounded-full blur-[100px] pointer-events-none hidden md:block"></div>
+        <div className="absolute bottom-[-10%] -left-[10%] w-[600px] h-[600px] bg-white/40 rounded-full blur-[100px] pointer-events-none hidden md:block"></div>
 
         <div className="w-full max-w-[1600px] mx-auto px-6 md:px-12 grid md:grid-cols-12 gap-12 lg:gap-24 items-center relative z-10">
           <motion.div initial="hidden" animate="visible" variants={{
@@ -78,15 +78,15 @@ const About = () => {
             </motion.p>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }} className="md:col-span-6 lg:col-span-5 relative mt-16 md:mt-0 flex justify-center">
+          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }} className="md:col-span-6 lg:col-span-5 relative mt-10 sm:mt-16 md:mt-0 flex justify-center md:h-[75vh]">
             {/* The Arch Frame */}
-            <div className="w-full sm:w-[85%] md:w-full h-[50vh] sm:h-[60vh] md:h-[75vh] rounded-t-[120px] sm:rounded-t-full overflow-hidden relative shadow-2xl border-t-2 border-white/60 bg-dust flex items-center justify-center">
-               <img 
-                 src={nefaImg} 
-                 alt="Nefa Jebrin" 
-                 className="w-full h-full object-cover object-top"
+            <div className="w-full sm:w-[85%] md:w-full h-auto md:h-full rounded-[24px] sm:rounded-t-[120px] md:rounded-t-full overflow-hidden relative shadow-2xl border border-white/60 md:border-t-2 bg-dust flex items-center justify-center">
+               <ResponsiveNefaImage
+                 className="w-full h-auto max-h-[75vh] md:max-h-none md:h-full object-contain object-center md:object-cover md:object-top"
+                 loading="eager"
+                 fetchPriority="high"
                />
-               <div className="absolute inset-0 bg-gradient-to-t from-sand/50 via-transparent to-transparent"></div>
+               <div className="absolute inset-0 bg-gradient-to-t from-sand/50 via-transparent to-transparent pointer-events-none hidden md:block"></div>
             </div>
           </motion.div>
         </div>

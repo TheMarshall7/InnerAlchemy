@@ -44,8 +44,8 @@ const Contact = () => {
       
       {/* BREATHING ATMOSPHERIC BACKGROUND */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-terracotta/10 rounded-full blur-[150px] animate-[pulse_10s_ease-in-out_infinite]"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[1000px] h-[1000px] bg-dust/50 rounded-full blur-[150px] animate-[pulse_15s_ease-in-out_infinite_alternate]"></div>
+        <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-terracotta/10 rounded-full blur-[150px] pointer-events-none hidden md:block animate-[pulse_10s_ease-in-out_infinite]"></div>
+        <div className="absolute bottom-[-10%] right-[-10%] w-[1000px] h-[1000px] bg-dust/50 rounded-full blur-[150px] pointer-events-none hidden md:block animate-[pulse_15s_ease-in-out_infinite_alternate]"></div>
       </div>
 
       <div className="flex-grow flex items-center justify-center pt-32 pb-20 px-6 relative z-20">
