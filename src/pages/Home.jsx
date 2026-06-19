@@ -45,7 +45,7 @@ const Home = () => {
             
             <motion.h1 variants={fadeUp} className="font-serif text-deepbrown mb-6 leading-[1.05] tracking-tight text-balance">
               <span className="block text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-light">Awaken Your</span>
-              <span className="block text-5xl sm:text-6xl md:text-8xl lg:text-[9rem] xl:text-[10rem] italic text-terracotta md:-mt-4">Holistic</span>
+              <span className="block text-5xl sm:text-6xl md:text-8xl lg:text-[9rem] xl:text-[10rem] italic text-terracotta md:-mt-4">Inner</span>
               <span className="block text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-light pl-4 sm:pl-8 md:pl-24 -mt-1 md:-mt-8">Alchemy.</span>
             </motion.h1>
             
