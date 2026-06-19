@@ -69,9 +69,9 @@ const About = () => {
               <div className="h-px w-12 bg-terracotta/40"></div>
               <span className="text-ochre tracking-[0.25em] text-[8px] md:text-[10px] uppercase font-semibold">Biography</span>
             </motion.div>
-            <motion.h1 variants={fadeUp} className="font-serif text-deepbrown mb-6 leading-[1.05] tracking-tight">
-              <span className="block text-6xl md:text-8xl lg:text-[10rem] font-light">Nefa</span>
-              <span className="block text-7xl md:text-9xl lg:text-[11rem] italic text-terracotta md:-mt-8 md:pl-20">Jebrin.</span>
+            <motion.h1 variants={fadeUp} className="font-serif text-deepbrown mb-6 leading-[1.05] tracking-tight text-balance">
+              <span className="block text-5xl sm:text-6xl md:text-8xl lg:text-[10rem] font-light">Nefa</span>
+              <span className="block text-6xl sm:text-7xl md:text-9xl lg:text-[11rem] italic text-terracotta md:-mt-8 pl-4 sm:pl-8 md:pl-20">Jebrin.</span>
             </motion.h1>
             <motion.p variants={fadeUp} className="text-earth text-lg md:text-xl font-light leading-relaxed max-w-lg mt-10 md:mt-12 pl-6 border-l border-deepbrown/10">
               Welcome — I’m grateful your path has brought you here. I guide souls into deeper consciousness through hypnotherapy, energy healing, spiritual psychology, and Source remembrance work.
@@ -80,7 +80,7 @@ const About = () => {
 
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }} className="md:col-span-6 lg:col-span-5 relative mt-16 md:mt-0 flex justify-center">
             {/* The Arch Frame */}
-            <div className="w-[85%] md:w-full h-[60vh] md:h-[75vh] rounded-t-full overflow-hidden relative shadow-2xl border-t-2 border-white/60 bg-dust flex items-center justify-center">
+            <div className="w-full sm:w-[85%] md:w-full h-[50vh] sm:h-[60vh] md:h-[75vh] rounded-t-[120px] sm:rounded-t-full overflow-hidden relative shadow-2xl border-t-2 border-white/60 bg-dust flex items-center justify-center">
                <img 
                  src={nefaImg} 
                  alt="Nefa Jebrin" 

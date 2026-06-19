@@ -14,11 +14,11 @@ const Funnel = () => {
       {/* Immersive background gradient */}
       <div className="absolute top-0 left-0 w-full h-[800px] bg-gradient-to-b from-terracotta/10 to-transparent pointer-events-none z-0"></div>
 
-      <div className="max-w-3xl mx-auto px-6 py-32 md:py-48 relative z-20">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 py-24 sm:py-32 md:py-48 relative z-20">
         
         {/* HOOK */}
-        <motion.div initial="hidden" animate="visible" variants={fadeUp} className="text-center mb-32">
-          <h1 className="text-4xl md:text-6xl font-serif text-deepbrown mb-12 border-b border-terracotta/30 pb-16 inline-block leading-tight uppercase tracking-widest">
+        <motion.div initial="hidden" animate="visible" variants={fadeUp} className="text-center mb-16 sm:mb-32">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-serif text-deepbrown mb-8 sm:mb-12 border-b border-terracotta/30 pb-10 sm:pb-16 inline-block leading-tight uppercase tracking-wide sm:tracking-widest text-balance">
             If you've done <br/> the healing... <br/>
             <span className="italic text-clay lowercase">Read this.</span>
           </h1>
@@ -74,7 +74,7 @@ const Funnel = () => {
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="mt-32 text-center">
           <h3 className="text-5xl font-serif text-deepbrown mb-12">Don't run old code.</h3>
           <Link to="/checkout" className="btn-primary w-full sm:w-auto px-16">
-            Begin Your Inner Alchemy Today
+            Begin Your Holistic Alchemy Today
           </Link>
           <p className="mt-12 text-xs uppercase tracking-widest text-earth/50 pt-12 border-t border-dust inline-block">
             <Link to="/" className="hover:text-terracotta transition-colors">Return to Main Sanctuary</Link>

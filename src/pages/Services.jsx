@@ -11,7 +11,7 @@ const Services = () => {
   };
 
   const services = [
-    { num: "01", title: "Inner Alchemy Hypnotherapy", duration: "Private Session", desc: "A deep subconscious journey that guides you into a profoundly relaxed state to access the roots of phobias, fears, traumas, and emotional blocks. We dissolve old patterns and reclaim your personal power.", benefits: "Emotional healing, inner child work, anxiety relief, belief change at a subconscious level. Reclaim your true self.", img: "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?q=60&w=800&auto=format&fit=crop", price: null, tag: "Signature" },
+    { num: "01", title: "Holistic Alchemy Hypnotherapy", duration: "Private Session", desc: "A deep subconscious journey that guides you into a profoundly relaxed state to access the roots of phobias, fears, traumas, and emotional blocks. We dissolve old patterns and reclaim your personal power.", benefits: "Emotional healing, inner child work, anxiety relief, belief change at a subconscious level. Reclaim your true self.", img: "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?q=60&w=800&auto=format&fit=crop", price: null, tag: "Signature" },
     { num: "02", title: "Access BARS", duration: "90 minutes", desc: "A gentle hands-on process that releases mental clutter and emotional heaviness. We release over 200,000 limiting thoughts and beliefs by activating 32 energy points on the head.", benefits: "Deep relaxation, mental clarity. Activates your Parasympathetic Nervous System.", img: barsImg, price: "$75", tag: null },
     { num: "03", title: "MTVSS Immune System", duration: "60 minutes", desc: "A powerful Access Consciousness hands-on body process to boost immunity by activating 32 energies focused on the liver, spleen, glands, and kidneys.", benefits: "Immune strength, Cellular regeneration, Chronic fatigue. Your body begins to remember its natural intelligence.", img: mtvssImg, price: "$75", tag: null },
     { num: "04", title: "Emotional Trauma Release", duration: "60 minutes", desc: "A subconscious–somatic clearing process that melts emotional blockages stored along the spine by accessing and releasing energetic memory and tension.", benefits: "Childhood wounds, Panic, Heart heaviness. Gives the inner child safety and release.", img: "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?q=60&w=800&auto=format&fit=crop", price: "$75", tag: null },
@@ -32,9 +32,9 @@ const Services = () => {
             <div className="h-px w-12 bg-terracotta/40"></div>
             <span className="text-ochre tracking-[0.25em] text-[8px] md:text-[10px] uppercase font-semibold">Private Practice</span>
           </div>
-          <h1 className="text-5xl md:text-8xl lg:text-[9rem] font-serif text-deepbrown mb-8 leading-[0.9] tracking-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-[9rem] font-serif text-deepbrown mb-6 md:mb-8 leading-[0.95] md:leading-[0.9] tracking-tight text-balance">
             Healing <br/>
-            <span className="italic text-terracotta md:pl-24 block">Sessions.</span>
+            <span className="italic text-terracotta pl-4 sm:pl-8 md:pl-24 block">Sessions.</span>
           </h1>
           <p className="text-lg md:text-xl text-earth max-w-2xl font-light leading-relaxed border-l border-deepbrown/20 pl-6 mt-12">
             Welcome to a sanctuary where your mind, body, and soul finally exhale. Each session activates a different dimension of your inner system to release, realign, and return home to yourself.
@@ -64,7 +64,7 @@ const Services = () => {
               <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp} className="grid md:grid-cols-12 gap-8 md:gap-16 items-center group">
                 
                 {/* Image Side */}
-                <div className={`md:col-span-5 h-[350px] md:h-[500px] relative overflow-hidden rounded-[40px] md:rounded-[80px] shadow-2xl ${isEven ? 'order-1' : 'order-1 md:order-2'} p-2 md:p-4 bg-white/10 backdrop-blur-sm border border-white/20`}>
+                <div className={`md:col-span-5 h-[280px] sm:h-[350px] md:h-[500px] relative overflow-hidden rounded-[32px] sm:rounded-[40px] md:rounded-[80px] shadow-2xl ${isEven ? 'order-1' : 'order-1 md:order-2'} p-2 md:p-4 bg-white/10 backdrop-blur-sm border border-white/20`}>
                   <img src={typeof service.img === 'string' && service.img.includes('unsplash') ? `${service.img}?q=80&w=1200&auto=format&fit=crop` : service.img} alt={service.title} className="w-full h-full object-cover object-center rounded-[32px] md:rounded-[64px] opacity-80 saturate-50 contrast-110 group-hover:scale-105 transition-transform duration-[2s] ease-out" />
                   <div className="absolute inset-0 bg-deepbrown/10 mix-blend-multiply"></div>
                   {/* Floating Number overlap */}
@@ -74,9 +74,9 @@ const Services = () => {
                 {/* Content Side */}
                 <div className={`md:col-span-7 space-y-8 md:space-y-12 ${isEven ? 'order-2' : 'order-2 md:order-1'}`}>
                   <div>
-                    <div className="flex items-center gap-3 mb-3">
-                      <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif text-deepbrown leading-tight group-hover:text-terracotta transition-colors">{service.title}</h2>
-                      {service.tag && <span className="ml-2 px-3 py-1 text-[9px] uppercase tracking-widest border border-terracotta text-terracotta rounded-full shrink-0">{service.tag}</span>}
+                    <div className="flex flex-col sm:flex-row sm:items-start sm:gap-3 mb-3">
+                      <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-serif text-deepbrown leading-tight group-hover:text-terracotta transition-colors text-balance">{service.title}</h2>
+                      {service.tag && <span className="sm:ml-2 px-3 py-1 text-[9px] uppercase tracking-widest border border-terracotta text-terracotta rounded-full shrink-0 w-fit">{service.tag}</span>}
                     </div>
                     <div className="flex items-center gap-4">
                       <h3 className="text-ochre tracking-widest-xl uppercase text-[10px] md:text-xs font-semibold">{service.duration}</h3>

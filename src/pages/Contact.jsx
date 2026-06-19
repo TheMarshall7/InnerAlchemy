@@ -1,13 +1,37 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FORMSPREE_CONTACT_ENDPOINT } from '../constants/links';
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError('');
+
+    try {
+      const response = await fetch(FORMSPREE_CONTACT_ENDPOINT, {
+        method: 'POST',
+        body: new FormData(e.target),
+        headers: { Accept: 'application/json' },
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        return;
+      }
+
+      const data = await response.json().catch(() => ({}));
+      setError(data.error || 'Something went wrong. Please try again.');
+    } catch {
+      setError('Unable to send your message. Please try again or email us directly.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const fadeUp = {
@@ -34,7 +58,7 @@ const Contact = () => {
               <span className="text-ochre tracking-[0.3em] text-[11px] uppercase font-semibold">Book A Session</span>
             </div>
 
-            <h1 className="text-6xl md:text-[6.5rem] lg:text-[7.5rem] font-serif text-deepbrown mb-6 leading-[0.85] tracking-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[6.5rem] font-serif text-deepbrown mb-6 leading-[0.9] sm:leading-[0.85] tracking-tight text-balance">
               Begin your <br/>
               <span className="italic text-terracotta relative inline-block mt-2 md:mt-4">
                 Journey.
@@ -82,34 +106,42 @@ const Contact = () => {
 
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.2, delay: 0.2 }} className="lg:pl-24 relative">
             
-            <div className="glass-panel p-10 md:p-16 relative overflow-hidden bg-white/60 shadow-2xl rounded-[40px] md:rounded-[60px] border border-white">
+            <div className="glass-panel p-8 sm:p-10 md:p-16 relative overflow-hidden bg-white/60 shadow-2xl rounded-[32px] sm:rounded-[40px] md:rounded-[60px] border border-white">
               {/* Corner accent */}
               <div className="absolute -top-10 -right-10 w-40 h-40 bg-dust rounded-full blur-3xl pointer-events-none"></div>
         
               {!submitted ? (
                 <form onSubmit={handleSubmit} className="space-y-8 relative z-10 flex flex-col">
                   <h3 className="text-3xl md:text-4xl font-serif text-deepbrown mb-8 border-b border-deepbrown/10 pb-6">Send an Inquiry</h3>
+
+                  <input type="hidden" name="_subject" value="New Holistic Alchemy Website Inquiry" />
                   
                   <div className="space-y-4">
-                    <input type="text" placeholder="Your Name" required className="w-full bg-transparent border-b border-deepbrown/20 py-4 text-deepbrown placeholder:text-deepbrown/40 focus:border-terracotta outline-none transition-colors font-light text-sm md:text-base"/>
-                    <input type="email" placeholder="Email Address" required className="w-full bg-transparent border-b border-deepbrown/20 py-4 text-deepbrown placeholder:text-deepbrown/40 focus:border-terracotta outline-none transition-colors font-light text-sm md:text-base"/>
-                    <select required className="w-full bg-transparent border-b border-deepbrown/20 py-4 text-deepbrown focus:border-terracotta outline-none transition-colors font-light cursor-pointer text-sm md:text-base appearance-none">
-                      <option value="" disabled selected>Select an Interest</option>
-                      <option value="hypnotherapy">Inner Alchemy Hypnotherapy</option>
-                      <option value="access-bars">Access BARS Session (90 min · $75)</option>
-                      <option value="mtvss">MTVSS Immune System (60 min · $75)</option>
-                      <option value="trauma-release">Emotional Trauma Release (60 min · $75)</option>
-                      <option value="energy-facelift">Energetic Facelift (60 min · $75)</option>
-                      <option value="brain-capacity">Brain Capacity Activation (60 min · $75)</option>
-                      <option value="manifestation">Manifestation Energy Activation (60 min · $75)</option>
-                      <option value="full-moon">Full Moon Meditation & Mantras ($45)</option>
-                      <option value="certification">7-Path Self-Hypnosis Certification</option>
-                      <option value="other">General Inquiry</option>
+                    <input type="text" name="name" placeholder="Your Name" required disabled={loading} className="w-full bg-transparent border-b border-deepbrown/20 py-4 text-deepbrown placeholder:text-deepbrown/40 focus:border-terracotta outline-none transition-colors font-light text-sm md:text-base disabled:opacity-50"/>
+                    <input type="email" name="email" placeholder="Email Address" required disabled={loading} className="w-full bg-transparent border-b border-deepbrown/20 py-4 text-deepbrown placeholder:text-deepbrown/40 focus:border-terracotta outline-none transition-colors font-light text-sm md:text-base disabled:opacity-50"/>
+                    <select name="interest" required defaultValue="" disabled={loading} className="w-full bg-transparent border-b border-deepbrown/20 py-4 text-deepbrown focus:border-terracotta outline-none transition-colors font-light cursor-pointer text-sm md:text-base appearance-none disabled:opacity-50 disabled:cursor-not-allowed">
+                      <option value="" disabled>Select an Interest</option>
+                      <option value="Holistic Alchemy Hypnotherapy">Holistic Alchemy Hypnotherapy</option>
+                      <option value="Access BARS Session (90 min · $75)">Access BARS Session (90 min · $75)</option>
+                      <option value="MTVSS Immune System (60 min · $75)">MTVSS Immune System (60 min · $75)</option>
+                      <option value="Emotional Trauma Release (60 min · $75)">Emotional Trauma Release (60 min · $75)</option>
+                      <option value="Energetic Facelift (60 min · $75)">Energetic Facelift (60 min · $75)</option>
+                      <option value="Brain Capacity Activation (60 min · $75)">Brain Capacity Activation (60 min · $75)</option>
+                      <option value="Manifestation Energy Activation (60 min · $75)">Manifestation Energy Activation (60 min · $75)</option>
+                      <option value="Full Moon Meditation & Mantras ($45)">Full Moon Meditation & Mantras ($45)</option>
+                      <option value="7-Path Self-Hypnosis Certification">7-Path Self-Hypnosis Certification</option>
+                      <option value="General Inquiry">General Inquiry</option>
                     </select>
-                    <textarea placeholder="Your Message" rows={3} required className="w-full bg-transparent border-b border-deepbrown/20 py-4 text-deepbrown placeholder:text-deepbrown/40 focus:border-terracotta outline-none transition-colors font-light resize-none mt-4 text-sm md:text-base"></textarea>
+                    <textarea name="message" placeholder="Your Message" rows={3} required disabled={loading} className="w-full bg-transparent border-b border-deepbrown/20 py-4 text-deepbrown placeholder:text-deepbrown/40 focus:border-terracotta outline-none transition-colors font-light resize-none mt-4 text-sm md:text-base disabled:opacity-50"></textarea>
                   </div>
 
-                  <button type="submit" className="btn-secondary w-full mt-8 bg-sand border-dust hover:bg-terracotta hover:text-white transition-all text-sm shadow-xl">Send Message</button>
+                  {error && (
+                    <p className="text-sm text-terracotta font-light leading-relaxed">{error}</p>
+                  )}
+
+                  <button type="submit" disabled={loading} className="btn-secondary w-full mt-8 bg-sand border-dust hover:bg-terracotta hover:text-white transition-all text-sm shadow-xl disabled:opacity-50 disabled:cursor-not-allowed">
+                    {loading ? 'Sending...' : 'Send Message'}
+                  </button>
                 </form>
               ) : (
                 <div className="text-center space-y-8 relative z-10 py-12">

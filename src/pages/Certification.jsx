@@ -1,9 +1,8 @@
-import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Compass, Award, HeartHandshake, ArrowRight } from 'lucide-react';
+import { Compass, ArrowRight } from 'lucide-react';
 import { useRef } from 'react';
-import nefaImg from '../assets/nefa.png';
 import mirrorsImg from '../assets/essence_mirrors.jpg';
+import { SEVEN_PATH_AWAKENING_PURCHASE_URL, SEVEN_PATH_AWAKENING_PRICE } from '../constants/links';
 
 const Certification = () => {
   const containerRef = useRef(null);
@@ -26,14 +25,15 @@ const Certification = () => {
 
         <motion.div initial="hidden" animate="visible" variants={fadeUp} className="max-w-5xl relative z-20 mx-auto text-center px-6">
           <span className="text-terracotta tracking-widest-xl text-[10px] uppercase font-semibold mb-8 block drop-shadow-sm">Professional Training</span>
-          <h1 className="text-5xl md:text-8xl lg:text-[10rem] font-serif text-deepbrown mb-10 leading-[0.85] uppercase tracking-wider drop-shadow-2xl">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-[10rem] font-serif text-deepbrown mb-8 md:mb-10 leading-[0.9] uppercase tracking-wide sm:tracking-wider drop-shadow-2xl text-balance">
             7-Path <br/>
             <span className="italic text-terracotta lowercase md:pl-20">Certification</span>
           </h1>
-          <p className="text-lg md:text-xl text-deepbrown/80 mb-16 max-w-3xl mx-auto font-light leading-relaxed border-l-2 border-r-2 border-terracotta/20 px-8">
+          <p className="text-lg md:text-xl text-deepbrown/80 mb-8 max-w-3xl mx-auto font-light leading-relaxed border-l-2 border-r-2 border-terracotta/20 px-8">
             A Mind–Body–Spirit Approach to Deep Subconscious Healing. Heal yourself completely, then build a practice facilitating profound transformation for others.
           </p>
-          <Link to="/contact" className="btn-primary backdrop-blur-md bg-terracotta/90 border border-deepbrown/10 text-white shadow-xl">Apply for Training</Link>
+          <p className="text-3xl md:text-4xl font-serif text-terracotta mb-12">{SEVEN_PATH_AWAKENING_PRICE}</p>
+          <a href={SEVEN_PATH_AWAKENING_PURCHASE_URL} target="_blank" rel="noopener noreferrer" className="btn-primary backdrop-blur-md bg-terracotta/90 border border-deepbrown/10 text-white shadow-xl text-center max-w-full">Enroll in 7-Path Awakening System</a>
         </motion.div>
       </section>
 
@@ -132,10 +132,11 @@ const Certification = () => {
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif text-white mb-12 leading-tight">
               Ready to awaken your <br/><span className="italic text-sand/80">inner master?</span>
             </h2>
-            <Link to="/contact" className="group relative inline-flex items-center gap-6 px-12 py-6 bg-white text-clay text-xs tracking-[0.3em] uppercase font-bold rounded-full overflow-hidden transition-all hover:pr-16 hover:bg-sand">
-              Apply for Certification
+            <p className="text-sand/70 text-sm uppercase tracking-[0.3em] mb-8">{SEVEN_PATH_AWAKENING_PRICE}</p>
+            <a href={SEVEN_PATH_AWAKENING_PURCHASE_URL} target="_blank" rel="noopener noreferrer" className="group relative inline-flex items-center justify-center gap-4 sm:gap-6 px-6 sm:px-12 py-5 sm:py-6 bg-white text-clay text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-[0.3em] uppercase font-bold rounded-full overflow-hidden transition-all hover:pr-12 sm:hover:pr-16 hover:bg-sand max-w-full text-center">
+              Purchase 7-Path Awakening System
               <ArrowRight size={18} className="absolute right-8 opacity-0 group-hover:opacity-100 transition-all" />
-            </Link>
+            </a>
           </motion.div>
         </div>
       </section>

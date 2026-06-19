@@ -11,7 +11,7 @@ const ThankYou = () => {
       <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, ease: "easeOut" }} className="max-w-2xl w-full text-center glass-panel p-16 md:p-24 relative z-20">
         <span className="text-ochre tracking-widest-xl text-[10px] uppercase font-semibold mb-8 block">Order Confirmed</span>
         <h1 className="text-5xl md:text-6xl font-serif text-deepbrown mb-6">Your Journey <br/><span className="italic text-clay">Begins Now.</span></h1>
-        <p className="text-earth mb-16 text-lg font-light leading-relaxed">Welcome to Inner Alchemy. Your subconscious architecture is about to change.</p>
+        <p className="text-earth mb-16 text-lg font-light leading-relaxed">Welcome to Holistic Alchemy. Your subconscious architecture is about to change.</p>
         
         <div className="text-left space-y-10 mb-16">
           <h3 className="text-deepbrown tracking-widest text-xs uppercase font-semibold border-b border-deepbrown/10 pb-4 mb-8">Next Steps</h3>

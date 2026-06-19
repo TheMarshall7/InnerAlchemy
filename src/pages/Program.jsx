@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { PlayCircle, Moon, Activity, ArrowRight } from 'lucide-react';
+import { PlayCircle, Moon, Activity, ArrowRight, Sparkles } from 'lucide-react';
+import { SEVEN_PATH_AWAKENING_PRICE } from '../constants/links';
 
 const Program = () => {
   const fadeUp = {
@@ -21,7 +22,7 @@ const Program = () => {
             <span className="text-terracotta tracking-[0.25em] text-[10px] uppercase font-semibold">Self-Guided Work</span>
             <div className="h-px w-12 bg-deepbrown/30 md:hidden"></div>
           </div>
-          <h1 className="text-5xl md:text-8xl lg:text-[10rem] font-serif text-deepbrown mb-10 leading-[0.9] tracking-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-[10rem] font-serif text-deepbrown mb-8 md:mb-10 leading-[0.95] md:leading-[0.9] tracking-tight text-balance">
             Courses & <br className="hidden md:block"/>
             <span className="italic text-clay md:pl-24 block">Trainings.</span>
           </h1>
@@ -43,7 +44,7 @@ const Program = () => {
       {/* BENTO CATALOG GRID */}
       <section className="py-24 md:py-40 bg-sand relative overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 auto-rows-[350px] md:auto-rows-[450px]">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 auto-rows-[minmax(300px,auto)] md:auto-rows-[450px]">
             
             {/* Massive Hero Audio Module */}
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp} className="col-span-1 lg:col-span-8 row-span-2 group relative overflow-hidden bg-deepbrown border border-dust rounded-[40px] md:rounded-[60px] shadow-2xl">
@@ -54,7 +55,7 @@ const Program = () => {
               <div className="absolute inset-0 p-10 md:p-16 flex flex-col justify-end z-10">
                 <PlayCircle className="mb-8 text-terracotta bg-white p-2 rounded-full hidden md:block" size={60} strokeWidth={1} />
                 <span className="text-[10px] uppercase tracking-[0.2em] text-white/50 border border-white/20 rounded-full px-4 py-1 self-start mb-6 backdrop-blur-sm">21-Day Audio System</span>
-                <h3 className="text-4xl md:text-6xl lg:text-7xl font-serif text-sand mb-6">Subconscious Reset</h3>
+                <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-serif text-sand mb-4 md:mb-6">Subconscious Reset</h3>
                 <p className="text-sand/80 leading-relaxed font-light text-base md:text-lg max-w-xl mb-10 border-l border-white/20 pl-6">A deep 21-day audio journey to calm your mind and body, release old patterns, and begin reprogramming your limiting beliefs while you relax.</p>
                 <Link to="/funnel" className="bg-white/10 hover:bg-white text-white hover:text-deepbrown self-start px-8 py-4 uppercase text-xs tracking-widest transition-all backdrop-blur-md rounded-full shadow-lg">Start Reset Protocol</Link>
               </div>
@@ -84,6 +85,20 @@ const Program = () => {
               </div>
               <Link to="/checkout" className="relative z-10 inline-flex items-center gap-3 text-xs tracking-widest uppercase text-deepbrown font-semibold pt-6 border-t border-deepbrown/10 w-max group-hover:text-terracotta transition-colors">
                 Purchase Audio <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </motion.div>
+
+            {/* 7-Path Awakening System */}
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} transition={{ delay: 0.6 }} className="col-span-1 lg:col-span-12 row-span-1 bg-clay hover:bg-clay/90 transition-colors duration-500 border border-deepbrown/10 p-10 md:p-16 flex flex-col md:flex-row md:items-center md:justify-between gap-8 rounded-[40px] md:rounded-[60px] shadow-xl overflow-hidden relative group">
+              <div className="absolute -right-16 -bottom-16 w-64 h-64 bg-white/5 rounded-full blur-[40px] group-hover:bg-terracotta/20 transition-all duration-1000"></div>
+              <div className="relative z-10 max-w-2xl">
+                <Sparkles className="mb-6 text-sand/60 group-hover:text-sand transition-opacity" size={32} strokeWidth={1} />
+                <span className="text-[10px] uppercase tracking-widest-xl text-sand/60 font-semibold mb-4 block">Signature Course — {SEVEN_PATH_AWAKENING_PRICE}</span>
+                <h3 className="text-3xl md:text-5xl font-serif text-white mb-4">7-Path Awakening System</h3>
+                <p className="text-sm md:text-base text-sand/80 leading-relaxed font-light">A mind–body–spirit self-hypnosis journey to heal emotional blocks, shift subconscious patterns, and reconnect with your higher self.</p>
+              </div>
+              <Link to="/certification" className="relative z-10 inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 bg-white text-clay text-[10px] sm:text-xs tracking-widest uppercase font-bold rounded-full shrink-0 group-hover:bg-sand transition-colors">
+                Enroll Now <ArrowRight size={14} />
               </Link>
             </motion.div>
 

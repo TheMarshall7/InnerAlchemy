@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const Footer = () => {
   return (
-    <footer className="bg-deepbrown pt-32 pb-12 relative z-20 overflow-hidden text-sand">
+    <footer className="bg-deepbrown pt-20 md:pt-32 pb-10 md:pb-12 relative z-20 overflow-hidden text-sand">
       {/* Decorative atmospheric background elements */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-terracotta/10 rounded-full blur-[120px] pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-sand/5 rounded-full blur-[100px] pointer-events-none"></div>
@@ -14,8 +14,9 @@ const Footer = () => {
           
           {/* Brand & Mission */}
           <div className="md:col-span-5 pr-0 md:pr-24">
-            <Link to="/" className="text-3xl font-serif font-light tracking-[0.3em] uppercase text-white block mb-8 group">
-              Inner<span className="text-terracotta italic ml-1 group-hover:text-sand transition-colors">Alchemy</span>
+            <Link to="/" className="text-2xl md:text-3xl font-serif font-light tracking-[0.15em] md:tracking-[0.3em] uppercase text-white block mb-6 md:mb-8 group leading-tight">
+              <span className="block">Holistic</span>
+              <span className="text-terracotta italic block group-hover:text-sand transition-colors">Alchemy</span>
             </Link>
             <p className="text-sand/60 text-lg md:text-xl font-light leading-relaxed mb-12">
               Bridging the gap between ancient spiritual wisdom and modern subconscious reprogramming. Return to your original blueprint.
@@ -93,7 +94,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-white/5 mt-24 pt-12 flex flex-col md:flex-row justify-between items-center text-[10px] tracking-widest uppercase text-sand/30 font-light">
           <div className="flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
-            <p>&copy; {new Date().getFullYear()} Inner Alchemy Healing Hypnosis</p>
+            <p>&copy; {new Date().getFullYear()} Holistic Alchemy Healing Hypnosis</p>
             <div className="flex gap-8">
               <Link to="#" className="hover:text-sand transition-colors">Privacy</Link>
               <Link to="#" className="hover:text-sand transition-colors">Terms</Link>

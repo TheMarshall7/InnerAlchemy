@@ -25,7 +25,7 @@ const Checkout = () => {
         <motion.div initial="hidden" animate="visible" variants={fadeUp} className="md:col-span-7 space-y-12">
           <div className="mb-12 border-b border-deepbrown/10 pb-8">
             <Link to="/" className="text-2xl font-serif text-deepbrown tracking-[0.2em] uppercase font-light">
-              Inner<span className="text-ochre italic ml-1 lowercase">Alchemy</span>
+              Holistic<span className="text-ochre italic ml-1 lowercase">Alchemy</span>
             </Link>
             <h1 className="text-4xl font-serif text-deepbrown mt-8">Secure Checkout</h1>
           </div>

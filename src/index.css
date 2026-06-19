@@ -37,11 +37,11 @@
 @layer components {
   /* Common UI Elements */
   .btn-primary {
-    @apply px-10 py-5 bg-terracotta text-deepbrown tracking-widest uppercase text-xs font-semibold transition-all duration-500 hover:bg-ochre hover:-translate-y-1 inline-block text-center rounded-sm shadow-xl shadow-terracotta/20;
+    @apply px-6 py-4 md:px-10 md:py-5 bg-terracotta text-deepbrown tracking-widest uppercase text-[10px] sm:text-xs font-semibold transition-all duration-500 hover:bg-ochre hover:-translate-y-1 inline-block text-center rounded-sm shadow-xl shadow-terracotta/20;
   }
   
   .btn-secondary {
-    @apply px-10 py-5 border border-rust text-deepbrown tracking-widest uppercase text-xs font-semibold transition-all duration-500 hover:bg-rust hover:text-deepbrown inline-block text-center rounded-sm backdrop-blur-md bg-dust/30;
+    @apply px-6 py-4 md:px-10 md:py-5 border border-rust text-deepbrown tracking-widest uppercase text-[10px] sm:text-xs font-semibold transition-all duration-500 hover:bg-rust hover:text-deepbrown inline-block text-center rounded-sm backdrop-blur-md bg-dust/30;
   }
 
   .nav-link {
