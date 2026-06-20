@@ -10,6 +10,7 @@ const Certification = lazy(() => import('./pages/Certification'));
 const Services = lazy(() => import('./pages/Services'));
 const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
+const IntakeForm = lazy(() => import('./pages/IntakeForm'));
 const Funnel = lazy(() => import('./pages/Funnel'));
 const Checkout = lazy(() => import('./pages/Checkout'));
 const ThankYou = lazy(() => import('./pages/ThankYou'));
@@ -36,6 +37,7 @@ function App() {
             <Route path="/services" element={<Services />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/intake" element={<IntakeForm />} />
           </Route>
 
           {/* Funnel/Utility Pages (No global Navbar/Footer to maximize conversion) */}

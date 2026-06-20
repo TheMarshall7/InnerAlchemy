@@ -66,6 +66,7 @@ const Footer = () => {
               {[
                 { name: "The Alchemist", link: "/about" },
                 { name: "Free Training", link: "/funnel" },
+                { name: "Client Intake Form", link: "/intake" },
                 { name: "Session Inquiry", link: "/contact" },
                 { name: "Our Philosophy", link: "/about" }
               ].map((link, i) => (

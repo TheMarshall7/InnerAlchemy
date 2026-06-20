@@ -66,9 +66,12 @@ const Contact = () => {
               </span>
             </h1>
 
-            <p className="text-earth font-light text-lg md:text-xl leading-relaxed mb-16 max-w-lg border-l-2 border-terracotta/20 pl-6">
+            <p className="text-earth font-light text-lg md:text-xl leading-relaxed mb-8 max-w-lg border-l-2 border-terracotta/20 pl-6">
               Whether you are ready for a private hypnotherapy session, energy work, or enrolling in our certification programs—reach out.
             </p>
+            <Link to="/intake" className="inline-flex items-center gap-2 text-xs tracking-widest uppercase text-terracotta hover:text-deepbrown transition-colors mb-16 border border-terracotta/30 rounded-full px-6 py-3">
+              Complete Client Intake Form →
+            </Link>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-10 pl-4">
               <div className="group relative">
