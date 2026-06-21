@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { submitToFormSubmit } from '../utils/formSubmit';
+import { submitForm } from '../utils/formSubmit';
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -14,7 +14,7 @@ const Contact = () => {
     setError('');
 
     try {
-      const result = await submitToFormSubmit(e.target);
+      const result = await submitForm(e.target);
 
       if (result.ok) {
         setSubmitted(true);

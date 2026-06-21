@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
-import { submitToFormSubmit } from '../utils/formSubmit';
+import { submitForm } from '../utils/formSubmit';
 import {
   getSavedIntakeStep,
   saveIntakeStep,
@@ -191,7 +191,7 @@ const IntakeForm = () => {
     setError('');
 
     try {
-      const result = await submitToFormSubmit(form);
+      const result = await submitForm(form);
 
       if (result.ok) {
         clearDraft();

@@ -92,21 +92,36 @@ async function main() {
   await page.fill('[name="client_signature"]', 'Test Client (Automated)');
   await page.fill('[name="signature_date"]', '2026-06-19');
 
-  const [response] = await Promise.all([
-    page.waitForResponse(
-      (res) => res.url().includes('formsubmit.co') && res.request().method() === 'POST',
-      { timeout: 15000 }
-    ),
-    page.getByRole('button', { name: /Submit Intake Form/i }).click(),
+  const formsubmitResponse = page.waitForResponse(
+    (res) => res.url().includes('formsubmit.co') && res.request().method() === 'POST',
+    { timeout: 15000 }
+  );
+  const formspreeResponse = page.waitForResponse(
+    (res) => res.url().includes('formspree.io') && res.request().method() === 'POST',
+    { timeout: 15000 }
+  );
+
+  await page.getByRole('button', { name: /Submit Intake Form/i }).click();
+
+  const [formsubmitRes, formspreeRes] = await Promise.all([
+    formsubmitResponse,
+    formspreeResponse,
   ]);
 
-  const status = response.status();
-  const body = await response.text();
-  let parsed = {};
+  const formsubmitBody = await formsubmitRes.text();
+  const formspreeBody = await formspreeRes.text();
+
+  let formsubmitParsed = {};
+  let formspreeParsed = {};
   try {
-    parsed = JSON.parse(body);
+    formsubmitParsed = JSON.parse(formsubmitBody);
   } catch {
-    parsed = {};
+    formsubmitParsed = {};
+  }
+  try {
+    formspreeParsed = JSON.parse(formspreeBody);
+  } catch {
+    formspreeParsed = {};
   }
 
   let pageText = '';
@@ -117,26 +132,36 @@ async function main() {
     pageText = await page.locator('form p.text-terracotta').textContent().catch(() => 'unknown');
   }
 
-  const formSubmitOk = parsed.success === 'true' || parsed.success === true;
+  const formSubmitOk =
+    formsubmitParsed.success === 'true' || formsubmitParsed.success === true;
   const pendingActivation =
-    typeof parsed.message === 'string' &&
-    parsed.message.toLowerCase().includes('activation');
+    typeof formsubmitParsed.message === 'string' &&
+    formsubmitParsed.message.toLowerCase().includes('activation');
+  const formspreeOk = formspreeRes.ok();
 
   const result = {
-    status,
-    body: parsed,
     pageText,
     stepsCompleted: 12,
     formFlowOk: true,
-    formSubmitOk,
-    pendingActivation,
+    formSubmit: {
+      status: formsubmitRes.status(),
+      ok: formSubmitOk || pendingActivation,
+      pendingActivation,
+      body: formsubmitParsed,
+    },
+    formspree: {
+      status: formspreeRes.status(),
+      ok: formspreeOk,
+      body: formspreeParsed,
+    },
+    dualSubmitOk: (formSubmitOk || pendingActivation) && formspreeOk,
   };
 
   console.log(JSON.stringify(result, null, 2));
 
   await browser.close();
   process.exit(
-    pageText === 'success-screen' && (formSubmitOk || pendingActivation) ? 0 : 1
+    pageText === 'success-screen' && (formSubmitOk || pendingActivation || formspreeOk) ? 0 : 1
   );
 }
 

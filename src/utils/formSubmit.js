@@ -1,4 +1,7 @@
-import { FORMSUBMIT_ENDPOINT } from '../constants/links';
+import { FORMSUBMIT_ENDPOINT, FORMSPREE_ENDPOINT } from '../constants/links';
+
+const toFormData = (formOrFormData) =>
+  formOrFormData instanceof FormData ? formOrFormData : new FormData(formOrFormData);
 
 export const formDataToObject = (formData) => {
   const obj = {};
@@ -21,8 +24,7 @@ export const formDataToObject = (formData) => {
 };
 
 export const submitToFormSubmit = async (formOrFormData) => {
-  const formData =
-    formOrFormData instanceof FormData ? formOrFormData : new FormData(formOrFormData);
+  const formData = toFormData(formOrFormData);
 
   const body = {
     _captcha: 'false',
@@ -45,12 +47,72 @@ export const submitToFormSubmit = async (formOrFormData) => {
     data.message.toLowerCase().includes('activation');
 
   if (data.success === 'true' || data.success === true || pendingActivation) {
-    return { ok: true, data, pendingActivation };
+    return { ok: true, data, pendingActivation, provider: 'formsubmit' };
   }
 
   return {
     ok: false,
-    error: data.message || data.error || 'Something went wrong. Please try again.',
+    error: data.message || data.error || 'FormSubmit submission failed.',
     data,
+    provider: 'formsubmit',
+  };
+};
+
+export const submitToFormspree = async (formOrFormData) => {
+  const formData = toFormData(formOrFormData);
+
+  const response = await fetch(FORMSPREE_ENDPOINT, {
+    method: 'POST',
+    body: formData,
+    headers: { Accept: 'application/json' },
+  });
+
+  const data = await response.json().catch(() => ({}));
+
+  if (response.ok) {
+    return { ok: true, data, provider: 'formspree' };
+  }
+
+  return {
+    ok: false,
+    error: data.error || 'Formspree submission failed.',
+    data,
+    provider: 'formspree',
+  };
+};
+
+export const submitForm = async (formOrFormData) => {
+  const formData = toFormData(formOrFormData);
+
+  const [formSubmitResult, formspreeResult] = await Promise.all([
+    submitToFormSubmit(formData).catch((err) => ({
+      ok: false,
+      error: err.message || 'FormSubmit request failed.',
+      provider: 'formsubmit',
+    })),
+    submitToFormspree(formData).catch((err) => ({
+      ok: false,
+      error: err.message || 'Formspree request failed.',
+      provider: 'formspree',
+    })),
+  ]);
+
+  if (formSubmitResult.ok || formspreeResult.ok) {
+    return {
+      ok: true,
+      formSubmit: formSubmitResult,
+      formspree: formspreeResult,
+      partial: formSubmitResult.ok !== formspreeResult.ok,
+    };
+  }
+
+  return {
+    ok: false,
+    error:
+      formspreeResult.error ||
+      formSubmitResult.error ||
+      'Something went wrong. Please try again or email nefnefa1968@gmail.com directly.',
+    formSubmit: formSubmitResult,
+    formspree: formspreeResult,
   };
 };
