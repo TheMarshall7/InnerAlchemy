@@ -1,5 +1,5 @@
 export const FormSection = ({ title, children }) => (
-  <section className="border-b border-deepbrown/10 pb-10 mb-10 last:border-0 last:pb-0 last:mb-0">
+  <section className="pb-2 mb-0">
     <h2 className="text-2xl md:text-3xl font-serif text-deepbrown mb-6">{title}</h2>
     {children}
   </section>

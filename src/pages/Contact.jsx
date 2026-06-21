@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FORMSPREE_CONTACT_ENDPOINT } from '../constants/links';
+import { submitToFormSubmit } from '../utils/formSubmit';
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -14,19 +14,14 @@ const Contact = () => {
     setError('');
 
     try {
-      const response = await fetch(FORMSPREE_CONTACT_ENDPOINT, {
-        method: 'POST',
-        body: new FormData(e.target),
-        headers: { Accept: 'application/json' },
-      });
+      const result = await submitToFormSubmit(e.target);
 
-      if (response.ok) {
+      if (result.ok) {
         setSubmitted(true);
         return;
       }
 
-      const data = await response.json().catch(() => ({}));
-      setError(data.error || 'Something went wrong. Please try again.');
+      setError(result.error);
     } catch {
       setError('Unable to send your message. Please try again or email us directly.');
     } finally {

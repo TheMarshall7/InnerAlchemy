@@ -3,5 +3,6 @@ export const SEVEN_PATH_AWAKENING_PURCHASE_URL =
 
 export const SEVEN_PATH_AWAKENING_PRICE = '$800 USD';
 
-// Formspree sends inquiries to nefnefa1968@gmail.com (activate on first submission via Formspree email)
-export const FORMSPREE_CONTACT_ENDPOINT = 'https://formspree.io/nefnefa1968@gmail.com';
+// FormSubmit sends inquiries to nefnefa1968@gmail.com (activate on first submission via confirmation email)
+export const FORMSUBMIT_EMAIL = 'nefnefa1968@gmail.com';
+export const FORMSUBMIT_ENDPOINT = `https://formsubmit.co/ajax/${FORMSUBMIT_EMAIL}`;
