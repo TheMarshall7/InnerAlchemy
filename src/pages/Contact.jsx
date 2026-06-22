@@ -84,8 +84,8 @@ const Contact = () => {
               <div className="group relative">
                 <div className="absolute -left-4 top-2 w-1 h-1 bg-terracotta/30 rounded-full group-hover:bg-terracotta group-hover:scale-150 transition-all duration-500"></div>
                 <span className="text-terracotta tracking-[0.2em] text-[10px] uppercase font-semibold mb-2 block">Email</span>
-                <a href="mailto:nefnefa1968@gmail.com" className="block text-earth font-light text-base hover:text-terracotta transition-colors duration-300">
-                  nefnefa1968@gmail.com
+                <a href="mailto:nefa1968@gmail.com" className="block text-earth font-light text-base hover:text-terracotta transition-colors duration-300">
+                  nefa1968@gmail.com
                 </a>
               </div>
               

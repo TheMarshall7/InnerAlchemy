@@ -201,7 +201,7 @@ const IntakeForm = () => {
 
       setError(result.error);
     } catch {
-      setError('Unable to submit your form. Please try again or email nefnefa1968@gmail.com directly.');
+      setError('Unable to submit your form. Please try again or email nefa1968@gmail.com directly.');
     } finally {
       setLoading(false);
     }

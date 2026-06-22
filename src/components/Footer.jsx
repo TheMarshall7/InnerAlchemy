@@ -24,7 +24,7 @@ const Footer = () => {
             <div className="flex space-x-4">
               {[
                 { icon: <FiInstagram />, link: "https://www.instagram.com/goddessinhumanform_alchemist?igsh=cTg1ZGdja21oMjN6" },
-                { icon: <FiMail />, link: "mailto:nefnefa1968@gmail.com" }
+                { icon: <FiMail />, link: "mailto:nefa1968@gmail.com" }
               ].map((social, i) => (
                 <a 
                   key={i}

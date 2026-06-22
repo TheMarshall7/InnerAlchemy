@@ -111,7 +111,7 @@ export const submitForm = async (formOrFormData) => {
     error:
       formspreeResult.error ||
       formSubmitResult.error ||
-      'Something went wrong. Please try again or email nefnefa1968@gmail.com directly.',
+      'Something went wrong. Please try again or email nefa1968@gmail.com directly.',
     formSubmit: formSubmitResult,
     formspree: formspreeResult,
   };
